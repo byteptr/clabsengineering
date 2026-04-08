@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es"> <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoreLabs Engineering | Expertise & Consulting</title>
+    
+    <meta name="description" content="Diseño electrónico y consultoría técnica.">
+    
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+<nav>
+    <a href="index.html">
+        <img src="../clabslogo.svg" alt="CoreLabs Engineering" class="logo-img">
+    </a>     
+    <div class="flags">
+        <a href="../fr/index.html" title="Français">🇫🇷</a>
+        <a href="../en/index.html" title="English">🇬🇧</a>
+        <a href="../es/index.html" title="Español">🇪🇸</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <h1>Ingeniería Electrónica</h1>
+    <p>Soluciones de consultoría, diseño e ingeniería</p>
+</section>
+
+<div class="container">
+    <div class="grid">
+        
+        <div class="card">
+            <div class="img-container">
+                <img src="../img/lab.jpeg" alt="Equipamiento para electrónica de baja frecuencia y RF/Microondas." class="img-responsive">
+            </div>
+            <h3>Laboratorio RF/Hardware</h3>
+            <p>Equipamiento para electrónica de baja frecuencia y RF/Microondas.</p>
+        </div>
+        
+        <div class="card">
+            <div class="img-container">
+                <img src="../img/pcbroute.png" alt="Sistemas digitales de alta velocidad (FPGA, DDR4, SERDES), potencia y trazado de RF." class="img-responsive">
+            </div>
+            <h3>Diseño PCB Altium</h3>
+            <p>Sistemas digitales de alta velocidad (FPGA, DDR4, SERDES), potencia y trazado de RF.</p>
+        </div>
+        
+        <div class="card">
+            <div class="img-container">
+                <img src="../img/filters.jpeg" alt="Filtros, Amplificadores RF, antenas, sintetizadores de frecuencia DDS/PLL. Analisis de compatibilidad electromagnética." class="img-responsive">
+            </div>
+            <h3>Diseño RF</h3>
+            <p>Filtros, Amplificadores RF, antenas, sintetizadores de frecuencia DDS/PLL. Analisis de compatibilidad electromagnética.</p>
+        </div>
+        
+</div>
+    <section style="margin-top: 4rem; text-align: center;">
+        <h2>Sobre CoreLabs</h2>
+        <p>CoreLabs cuenta con experiencia en diversos sectores de la electrónica (Aeronáutica, Médico, Telecomunicaciones, Automóvil, Ferroviario). Desde la electrónica de potencia a la RF, pasando por el trazado de placas, la  modelización matemática de sistemas y creación de sistemas completos (Hardware/Software).</p>
+    </section>
+<footer>
+    <p><strong></strong></p>
+    <p>📧 <a href="mailto:ralvarez@clabsengineering.com" class="footer-link">ralvarez@clabsengineering.com</a></p>
+</footer>
+
+<script>
+    document.querySelectorAll('.img-container').forEach(container => {
+        const img = container.querySelector('img');
+
+        container.addEventListener('mousemove', (e) => {
+            const rect = container.getBoundingClientRect();
+            const x = ((e.clientX - rect.left) / rect.width) * 100;
+            const y = ((e.clientY - rect.top) / rect.height) * 100;
+            img.style.transformOrigin = `${x}% ${y}%`;
+        });
+
+        container.addEventListener('mouseleave', () => {
+            img.style.transformOrigin = 'center center';
+        });
+    });
+</script>
+
+</body>
+</html>

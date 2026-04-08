@@ -1,2 +1,36 @@
-<h1>CLABS Engineering</h1>
-<p>Web en construcción...</p>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>CLABS Engineering</title>
+    <script>
+        // Detector de idioma automático
+        var userLang = navigator.language || navigator.userLanguage; 
+        if (userLang.startsWith('es')) {
+            window.location.href = "./es/index.html";
+        } else if (userLang.startsWith('en')) {
+            window.location.href = "./en/index.html";
+        } else {
+            window.location.href = "./fr/index.html";
+        }
+    </script>
+</head>
+<body>
+    <nav style="display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000;">
+        <a href="index.html" style="text-decoration: none; font-weight: bold; color: #0056b3; font-size: 1.2rem;">CLABS Engineering</a>
+        
+        <div class="language-selector" style="display: flex; gap: 15px; align-items: center;">
+            <span style="font-size: 0.8rem; color: #666; font-family: sans-serif;">Language:</span>
+            <a href="../fr/index.html" title="Français" style="text-decoration: none; font-size: 1.5rem;">🇫🇷</a>
+            <a href="../en/index.html" title="English" style="text-decoration: none; font-size: 1.5rem;">🇬🇧</a>
+            <a href="../es/index.html" title="Español" style="text-decoration: none; font-size: 1.5rem;">🇪🇸</a>
+        </div>
+    </nav>    
+    <h1>CLABS Engineering</h1>
+    <ul>
+        <li><a href="./fr/index.html">Français</a></li>
+        <li><a href="./en/index.html">English</a></li>
+        <li><a href="./es/index.html">Español</a></li>
+    </ul>
+</body>
+</html>
