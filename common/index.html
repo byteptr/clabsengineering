@@ -47,18 +47,51 @@
     <p>📧 <a href="mailto:ralvarez@clabsengineering.com" class="footer-link">ralvarez@clabsengineering.com</a></p>
 </footer>
 
+<!-- <script> -->
+<!--     document.querySelectorAll('.img-container').forEach(container => { -->
+<!--         const img = container.querySelector('img'); -->
+<!---->
+<!--         container.addEventListener('mousemove', (e) => { -->
+<!--             const rect = container.getBoundingClientRect(); -->
+<!--             const x = ((e.clientX - rect.left) / rect.width) * 100; -->
+<!--             const y = ((e.clientY - rect.top) / rect.height) * 100; -->
+<!--             img.style.transformOrigin = `${x}% ${y}%`; -->
+<!--         }); -->
+<!---->
+<!--         container.addEventListener('mouseleave', () => { -->
+<!--             img.style.transformOrigin = 'center center'; -->
+<!--         }); -->
+<!--     }); -->
+<!-- </script> -->
+
 <script>
+    // Detectamos si el usuario interactúa con la pantalla táctil
+    let isTouchDevice = false;
+    window.addEventListener('touchstart', () => {
+        isTouchDevice = true;
+    }, { passive: true });
+
     document.querySelectorAll('.img-container').forEach(container => {
         const img = container.querySelector('img');
 
         container.addEventListener('mousemove', (e) => {
+            // Si el usuario está tocando la pantalla (móvil), abortamos el zoom
+            if (isTouchDevice) return;
+
             const rect = container.getBoundingClientRect();
             const x = ((e.clientX - rect.left) / rect.width) * 100;
             const y = ((e.clientY - rect.top) / rect.height) * 100;
+            
+            // Forzamos el origen y el zoom por JavaScript
             img.style.transformOrigin = `${x}% ${y}%`;
+            img.style.transform = 'scale(2.5)';
+            container.style.cursor = 'zoom-in';
         });
 
+        // Al sacar el ratón de la foto, reseteamos el tamaño limpiamente
         container.addEventListener('mouseleave', () => {
+            if (isTouchDevice) return;
+            img.style.transform = 'scale(1)';
             img.style.transformOrigin = 'center center';
         });
     });
