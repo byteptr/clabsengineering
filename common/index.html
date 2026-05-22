@@ -65,32 +65,27 @@
 <!-- </script> -->
 
 <script>
-    // Detectamos si el usuario interactúa con la pantalla táctil
-    let isTouchDevice = false;
-    window.addEventListener('touchstart', () => {
-        isTouchDevice = true;
-    }, { passive: true });
-
     document.querySelectorAll('.img-container').forEach(container => {
         const img = container.querySelector('img');
 
-        container.addEventListener('mousemove', (e) => {
-            // Si el usuario está tocando la pantalla (móvil), abortamos el zoom
-            if (isTouchDevice) return;
+        // Usamos 'pointermove' en vez de 'mousemove' porque detecta el tipo de dispositivo
+        container.addEventListener('pointermove', (e) => {
+            // 🚀 SI ES UN DEDO (TOUCH), ABORTAMOS. No se hace zoom en el móvil y el scroll va fluido
+            if (e.pointerType === 'touch') return;
 
             const rect = container.getBoundingClientRect();
             const x = ((e.clientX - rect.left) / rect.width) * 100;
             const y = ((e.clientY - rect.top) / rect.height) * 100;
             
-            // Forzamos el origen y el zoom por JavaScript
+            // Aplicamos el origen y el zoom SOLO si es un ratón real
             img.style.transformOrigin = `${x}% ${y}%`;
             img.style.transform = 'scale(2.5)';
             container.style.cursor = 'zoom-in';
         });
 
-        // Al sacar el ratón de la foto, reseteamos el tamaño limpiamente
-        container.addEventListener('mouseleave', () => {
-            if (isTouchDevice) return;
+        // Al sacar el ratón de la tarjeta, volvemos al estado normal
+        container.addEventListener('pointerleave', (e) => {
+            if (e.pointerType === 'touch') return;
             img.style.transform = 'scale(1)';
             img.style.transformOrigin = 'center center';
         });
