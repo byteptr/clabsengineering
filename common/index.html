@@ -47,46 +47,18 @@
     <p>📧 <a href="mailto:ralvarez@clabsengineering.com" class="footer-link">ralvarez@clabsengineering.com</a></p>
 </footer>
 
-<!-- <script> -->
-<!--     document.querySelectorAll('.img-container').forEach(container => { -->
-<!--         const img = container.querySelector('img'); -->
-<!---->
-<!--         container.addEventListener('mousemove', (e) => { -->
-<!--             const rect = container.getBoundingClientRect(); -->
-<!--             const x = ((e.clientX - rect.left) / rect.width) * 100; -->
-<!--             const y = ((e.clientY - rect.top) / rect.height) * 100; -->
-<!--             img.style.transformOrigin = `${x}% ${y}%`; -->
-<!--         }); -->
-<!---->
-<!--         container.addEventListener('mouseleave', () => { -->
-<!--             img.style.transformOrigin = 'center center'; -->
-<!--         }); -->
-<!--     }); -->
-<!-- </script> -->
-
 <script>
     document.querySelectorAll('.img-container').forEach(container => {
         const img = container.querySelector('img');
 
-        // Usamos 'pointermove' en vez de 'mousemove' porque detecta el tipo de dispositivo
-        container.addEventListener('pointermove', (e) => {
-            // 🚀 SI ES UN DEDO (TOUCH), ABORTAMOS. No se hace zoom en el móvil y el scroll va fluido
-            if (e.pointerType === 'touch') return;
-
+        container.addEventListener('mousemove', (e) => {
             const rect = container.getBoundingClientRect();
             const x = ((e.clientX - rect.left) / rect.width) * 100;
             const y = ((e.clientY - rect.top) / rect.height) * 100;
-            
-            // Aplicamos el origen y el zoom SOLO si es un ratón real
             img.style.transformOrigin = `${x}% ${y}%`;
-            img.style.transform = 'scale(2.5)';
-            container.style.cursor = 'zoom-in';
         });
 
-        // Al sacar el ratón de la tarjeta, volvemos al estado normal
-        container.addEventListener('pointerleave', (e) => {
-            if (e.pointerType === 'touch') return;
-            img.style.transform = 'scale(1)';
+        container.addEventListener('mouseleave', () => {
             img.style.transformOrigin = 'center center';
         });
     });

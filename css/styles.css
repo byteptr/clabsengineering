@@ -73,10 +73,45 @@ nav {
     display: block;
 }
 
-/* Zoom al pasar el ratón 
-.img-container:hover .img-responsive {
-    transform: scale(2.5); // Nivel de ampliación 
-}*/
+/* /* Zoom al pasar el ratón */ */
+/* .img-container:hover .img-responsive { */
+/*     transform: scale(2.5); // Nivel de ampliación  */
+/* } */
+
+/* =======================================================
+   1. COMPORTAMIENTO PARA PC (Dispositivos con ratón)
+   ======================================================= */
+@media (hover: hover) {
+    /* Estado normal: Ratón fuera -> Escala normal */
+    .img-container .img-responsive {
+        transform: scale(1);
+        transition: transform 0.1s ease-out;
+    }
+    /* Al pasar el ratón -> Zoom */
+    .img-container:hover .img-responsive {
+        transform: scale(2.5);
+        cursor: crosshair;
+    }
+}
+
+/* =======================================================
+   2. COMPORTAMIENTO PARA MÓVIL (Pantallas táctiles)
+   ======================================================= */
+@media (hover: none) {
+    /* 🚀 ESTADO POR DEFECTO: Dedo QUITADO de la pantalla.
+       Forzamos la escala a 1 para que vuelva a su tamaño siempre. */
+    .img-container .img-responsive {
+        transform: scale(1);
+        transition: transform 0.1s ease-out;
+    }
+
+    /* ESTADO PULSADO: Dedo PUESTO en la pantalla.
+       Solo mientras mantienes el dedo apoyado, se hace el zoom. */
+    .img-container:active .img-responsive {
+        transform: scale(2.5);
+    }
+}
+
 
 /* 🚀 FILTRO PARA MÓVILES: El zoom de la lupa SOLO se activa si el dispositivo tiene ratón real */
 /* @media (hover: hover) { */
