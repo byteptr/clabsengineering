@@ -73,28 +73,10 @@ nav {
     display: block;
 }
 
-/* /* Zoom al pasar el ratón */ */
- .img-container:hover .img-responsive { */
-     transform: scale(2.5); // Nivel de ampliación  */
- } */
-
-
-
-/* 🚀 FILTRO PARA MÓVILES: El zoom de la lupa SOLO se activa si el dispositivo tiene ratón real */
-/* @media (hover: hover) { */
-/*     .img-container:hover .img-responsive { */
-/*         transform: scale(2.5); /* Nivel de ampliación */ */
-/*         cursor: zoom-in; */
-/*     } */
-/* } */
-
-/* 🚀 EL PARCHE DEFINITIVO: El zoom solo se activa si el dispositivo emula hover Y tiene un puntero preciso (Ratón/Trackpad) */
-/* @media (hover: hover) and (pointer: fine) { */
-/*     .img-container:hover .img-responsive { */
-/*         transform: scale(2.5); /* Nivel de ampliación */ */
-/*         cursor: zoom-in; */
-/*     } */
-/* } */
+/* Zoom al pasar el ratón */
+.img-container:hover .img-responsive {
+    transform: scale(2.5); /* Nivel de ampliación */
+}
 
 /*footer { background: #1500da; color: white; text-align: center; padding: 2rem; margin-top: 4rem; }*/
 
@@ -119,5 +101,3 @@ footer a:hover {
     text-decoration: underline;
     color: var(--verde-corelabs) !important; /* Usa tu verde CoreLabs al pasar el ratón, queda de lujo */
 }
-
-
