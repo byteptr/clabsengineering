@@ -169,3 +169,59 @@ footer a:hover {
     text-decoration: underline;
     color: var(--verde-corelabs) !important; /* Usa tu verde CoreLabs al pasar el ratón, queda de lujo */
 }
+
+
+/* ======================================================= */
+/*   RESPONSIVIDAD PARA MÓVILES (Añadir al final de todo)   */
+/* ======================================================= */
+@media (max-width: 768px) {
+    /* El contenedor principal pasa de fila horizontal a columna vertical */
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px 1.5rem;
+    }
+
+    /* La lista de enlaces ocupa todo el ancho y se ordena hacia abajo */
+    .menu-nav {
+        flex-direction: column;
+        width: 100%;
+        gap: 0; /* Quitamos el espacio horizontal de escritorio */
+        margin-top: 15px;
+    }
+
+    /* Cada fila del menú se vuelve un bloque completo */
+    .menu-item {
+        width: 100%;
+        border-bottom: 1px solid #f0f0f0; /* Separador sutil para móviles */
+    }
+
+    .menu-item > a {
+        padding: 0.8rem 0; /* Más área de toque para el dedo */
+    }
+
+    /* SOLUCIÓN AL DESPLEGABLE: Cambiamos 'absolute' por 'static'. 
+       Así se integra de forma natural en vertical sin salirse por la derecha */
+    .dropdown-menu {
+        position: static; 
+        width: 100%;
+        min-width: 100%;
+        box-shadow: none;
+        border: none;
+        border-left: 3px solid var(--azul-corelabs); /* Pestaña visual elegante */
+        background-color: #f9f9f9;
+        padding: 0;
+        border-radius: 0;
+    }
+
+    .dropdown-menu li a {
+        padding: 0.7rem 1rem;
+    }
+
+    /* Las banderas se alinean abajo limpiamente */
+    .flags {
+        margin-top: 15px;
+        margin-left: 0;
+        width: 100%;
+    }
+}
