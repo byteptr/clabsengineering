@@ -100,10 +100,28 @@ nav {
     display: block;
 }
 
+.flags {
+    display: flex;
+    align-items: center;
+}
+
 .flags a {
     text-decoration: none;
     margin-left: 15px;
-    font-size: 1.5rem;
+    display: inline-block;
+}
+
+.flags a img {
+    width: 26px; /* Tamaño perfecto de la bandera en PC */
+    height: auto;
+    vertical-align: middle;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.15); /* Sombra elegante */
+    transition: transform 0.2s;
+}
+
+.flags a img:hover {
+    transform: scale(1.1); /* Efecto sutil al pasar el ratón */
 }
 
 /* La banda azul CoreLabs */
@@ -221,17 +239,17 @@ footer a:hover {
 
     /* BANDERAS: Fuerza el centrado absoluto estilo bloque de texto */
     .flags {
-        display: block !important;
-        text-align: center !important; /* Centra todo el contenido inline al milímetro */
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
         width: 100% !important;
-        margin: 15px 0 0 0 !important; /* Limpia por completo cualquier desvío */
+        margin: 15px 0 0 0 !important;
         padding: 0 !important;
     }
     
     .flags a {
+        margin: 0 12px !important;
         display: inline-block !important;
-        margin: 0 12px !important; /* Espacio limpio y simétrico a los lados */
-        padding: 0 !important;
-    }
+    }    
 
 }
