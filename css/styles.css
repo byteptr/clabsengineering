@@ -15,7 +15,7 @@ body {
     line-height: 1.6;
 }
 
-/* Navegación */
+/* Navegación general */
 nav {
     background: white;
     padding: 10px 2rem;
@@ -34,7 +34,7 @@ nav {
     display: block;
 }
 
-/* Estilos de la lista del menú dinámico */
+/* Lista del menú principal */
 .menu-nav {
     display: flex;
     list-style: none;
@@ -47,7 +47,7 @@ nav {
     position: relative;
 }
 
-/* Enlaces principales en Azul CoreLabs */
+/* Enlaces principales */
 .menu-item > a {
     color: var(--azul-corelabs);
     text-decoration: none;
@@ -58,12 +58,11 @@ nav {
     transition: color 0.2s ease;
 }
 
-/* Cambio a Verde CoreLabs en Hover */
 .menu-item > a:hover {
     color: var(--verde-corelabs);
 }
 
-/* Estructura del Menú Desplegable (Dropdown) */
+/* Estructura del Menú Desplegable (Dropdown) con Scroll */
 .dropdown-menu {
     display: none;
     position: absolute;
@@ -78,6 +77,10 @@ nav {
     z-index: 999;
     border-radius: 4px;
     border: 1px solid #ddd;
+    
+    /* SCROLL VERTICAL SI SE ACUMULAN MUCHOS ARTÍCULOS */
+    max-height: 250px;
+    overflow-y: auto;
 }
 
 .dropdown-menu li a {
@@ -95,11 +98,7 @@ nav {
     color: var(--azul-corelabs);
 }
 
-/* Mostrar el desplegable al pasar el ratón */
-.menu-item:hover .dropdown-menu {
-    display: block;
-}
-
+/* Contenedor de banderas vectoriales SVG */
 .flags {
     display: flex;
     align-items: center;
@@ -124,7 +123,7 @@ nav {
     transform: scale(1.1); 
 }
 
-/* La banda azul CoreLabs */
+/* Sección Hero */
 .hero {
     background: var(--azul-corelabs);
     color: white;
@@ -132,12 +131,12 @@ nav {
     text-align: center;
 }
 
-/* Contenedores y tarjetas */
+/* Componentes de la Home */
 .container { max-width: 1000px; margin: auto; padding: 2rem; }
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
 .card { background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border: 1px solid #ddd; }
 
-/* CONTENEDOR LUPA */
+/* Contenedor de la lupa interactiva */
 .img-container {
     background: #f0f0f0;
     height: 300px; 
@@ -152,22 +151,20 @@ nav {
     cursor: crosshair;
 }
 
-/* FIX NATIVO PARA MÓVILES: Forzamos dimensiones completas con object-fit para evitar colapsos a 0px */
 .img-responsive {
     width: 100% !important;
     height: 100% !important;
-    object-fit: contain !important;
+    object-fit: contain !important; 
     transition: transform 0.1s ease-out; 
     transform-origin: center center;
     display: block;
 }
 
-/* Zoom al pasar el ratón */
 .img-container:hover .img-responsive {
     transform: scale(2.5); 
 }
 
-/* Estilos para el Footer Azul */
+/* Footer general */
 footer {
     background-color: var(--azul-corelabs);
     color: white;
@@ -188,7 +185,17 @@ footer a:hover {
 }
 
 /* ======================================================= */
-/* RESPONSIVIDAD PARA MÓVILES (COMPRIMIDO Y CENTRADO)      */
+/* EXCLUSIVO PARA PC / ESCRITORIO (MÍNIMO 769px)           */
+/* ======================================================= */
+@media (min-width: 769px) {
+    /* El efecto hover para abrir el menú SOLO se activa en ordenadores */
+    .menu-item:hover .dropdown-menu {
+        display: block;
+    }
+}
+
+/* ======================================================= */
+/* EXCLUSIVO PARA MÓVILES / TABLETS (MÁXIMO 768px)         */
 /* ======================================================= */
 @media (max-width: 768px) {
     nav {
@@ -231,6 +238,7 @@ footer a:hover {
         text-align: center;
     }
 
+    /* Centrado de banderas en la versión colapsada */
     .flags {
         display: flex !important;
         justify-content: center !important;
@@ -243,5 +251,15 @@ footer a:hover {
     .flags a {
         margin: 0 12px !important;
         display: inline-block !important;
-    }    
+    }
+
+    /* FIX DEFINITIVO: Evita que las imágenes de los artículos rompan la pantalla del móvil */
+    .article-content img {
+        max-width: 100% !important;
+        height: auto !important;   
+        display: block;
+        margin: 1.5rem auto;         
+        border-radius: 6px;        
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08); 
+    }
 }
