@@ -14,7 +14,7 @@
     <link rel="alternate" hreflang="x-default" href="https://clabsengineering.com/en/index.html" />    
     <meta name="description" content="Conception électronique et conseil technique.">
     
-    <link rel="stylesheet" href="../css/styles.css?v=1780859584">
+    <link rel="stylesheet" href="../css/styles.css?v=1780859931">
 </head>
 <body>
 
@@ -152,6 +152,21 @@
 
         container.addEventListener('mouseleave', () => {
             img.style.transformOrigin = 'center center';
+        });
+    });
+</script>
+<script>
+    // Detectar el clic en los elementos del menú que tienen submenú (href="#")
+    document.querySelectorAll('.menu-item > a[href="#"]').forEach(trigger => {
+        trigger.addEventListener('click', function(e) {
+            // Solo actuar si estamos en pantalla móvil
+            if (window.innerWidth <= 768) {
+                e.preventDefault(); // Evitar que la pantalla haga un salto extraño
+                const parent = this.parentElement;
+                
+                // Conmutar la clase active: si está la quita, si no está la pone
+                parent.classList.toggle('active');
+            }
         });
     });
 </script>
