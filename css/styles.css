@@ -219,11 +219,19 @@ footer a:hover {
         text-align: center;
     }
 
-    /* 1. CENTRADO: Centramos las banderas en el eje horizontal */
+    /* BANDERAS: Fuerza el centrado absoluto estilo bloque de texto */
     .flags {
-        margin-top: 10px;
-        margin-left: 0;
-        width: 100%;
-        justify-content: center; 
+        display: block !important;
+        text-align: center !important; /* Centra todo el contenido inline al milímetro */
+        width: 100% !important;
+        margin: 15px 0 0 0 !important; /* Limpia por completo cualquier desvío */
+        padding: 0 !important;
     }
+    
+    .flags a {
+        display: inline-block !important;
+        margin: 0 12px !important; /* Espacio limpio y simétrico a los lados */
+        padding: 0 !important;
+    }
+
 }
