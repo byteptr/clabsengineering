@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pyfsm | CoreLabs Engineering</title>
-    <link rel="stylesheet" href="../css/styles.css?v=1780860547">
+    <link rel="stylesheet" href="../css/styles.css?v=1780861339">
     
     <script>
         window.MathJax = {
@@ -432,6 +432,7 @@ SOFTWARE.</p>
 </footer>
 
 <script>
+    // Control definitivo del desplegable compatible con caché móvil y de escritorio
     document.querySelectorAll('.menu-item > a[href="#"]').forEach(trigger => {
         trigger.addEventListener('click', function(e) {
             if (window.innerWidth <= 768) {
@@ -439,15 +440,17 @@ SOFTWARE.</p>
                 e.stopPropagation();
                 const dropdown = this.nextElementSibling;
                 if (dropdown) {
-                    if (dropdown.style.display === 'block') {
+                    // Leemos el estilo real computado en pantalla para evitar falsos vacíos ""
+                    const currentDisplay = window.getComputedStyle(dropdown).display;
+                    if (currentDisplay === 'block') {
                         dropdown.style.setProperty('display', 'none', 'important');
                     } else {
                         dropdown.style.setProperty('display', 'block', 'important');
-                        }
                     }
                 }
-            });
+            }
         });
+    });
 </script>
 </body>
 </html>
