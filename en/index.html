@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en"> <head>
+<html lang="en"> 
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
@@ -7,20 +8,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CoreLabs Engineering | Expertise & Consulting</title>
 
-<link rel="canonical" href="https://clabsengineering.com/en/index.html" />
+    <link rel="canonical" href="https://clabsengineering.com/en/index.html" />
     <link rel="alternate" hreflang="es" href="https://clabsengineering.com/es/index.html" />
     <link rel="alternate" hreflang="fr" href="https://clabsengineering.com/fr/index.html" />
     <link rel="alternate" hreflang="en" href="https://clabsengineering.com/en/index.html" />
     <link rel="alternate" hreflang="x-default" href="https://clabsengineering.com/en/index.html" />    
     <meta name="description" content="Electronic design and technical consultancy.">
     
-    <link rel="stylesheet" href="../css/styles.css?v=1780915007">
+    <link rel="stylesheet" href="../css/styles.css?v=1780916694">
 </head>
 <body>
 
 <nav>
     <a href="index.html">
-        <img src="../clabslogo.svg" alt="CoreLabs Engineering" class="logo-img">
+        <img src="../clabslogo.svg?v=1780916694" alt="CoreLabs Engineering" class="logo-img">
     </a>     
 
     <ul class="menu-nav">
@@ -77,12 +78,13 @@
     with experience in various sectors: Telecommunications, Medical, Aerospace, Railway, and Automotive.
     
 </div>
+
 <div class="container" id="section-1">
     <div class="grid">
         
         <div class="card">
             <div class="img-container">
-                <img src="../img/lab.jpeg" alt="Equipment for electronics and Radio Frequency/Microwave." class="img-responsive">
+                <img src="../img/lab.jpeg?v=1780916694" alt="Equipment for electronics and Radio Frequency/Microwave." class="img-responsive">
             </div>
             <h3>RF/Hardware Laboratory</h3>
             <p>Equipment for electronics and Radio Frequency/Microwave.</p>
@@ -90,7 +92,7 @@
         
         <div class="card">
             <div class="img-container">
-                <img src="../img/pcbroute2.png" alt="High-speed digital systems (FPGA, DDR4, SERDES), power electronics, and RF layout." class="img-responsive">
+                <img src="../img/pcbroute2.png?v=1780916694" alt="High-speed digital systems (FPGA, DDR4, SERDES), power electronics, and RF layout." class="img-responsive">
             </div>
             <h3>Altium PCB Design</h3>
             <p>High-speed digital systems (FPGA, DDR4, SERDES), power electronics, and RF layout.</p>
@@ -98,7 +100,7 @@
         
         <div class="card">
             <div class="img-container">
-                <img src="../img/filters.jpeg" alt="Filters, RF Amplifiers, antennas, DDS/PLL frequency synthesizers. Electromagnetic compatibility (EMC) analysis." class="img-responsive">
+                <img src="../img/filters.jpeg?v=1780916694" alt="Filters, RF Amplifiers, antennas, DDS/PLL frequency synthesizers. Electromagnetic compatibility (EMC) analysis." class="img-responsive">
             </div>
             <h3>RF Design</h3>
             <p>Filters, RF Amplifiers, antennas, DDS/PLL frequency synthesizers. Electromagnetic compatibility (EMC) analysis.</p>
@@ -106,7 +108,7 @@
         
         <div class="card">
             <div class="img-container">
-                <img src="../img/elecpuiss.jpg" alt="Custom Interleaved Buck Boost, FPGA-controlled and with active PFC. Conventional MOSFET, GaN, and SiC technologies." class="img-responsive">
+                <img src="../img/elecpuiss.jpg?v=1780916694" alt="Custom Interleaved Buck Boost, FPGA-controlled and with active PFC. Conventional MOSFET, GaN, and SiC technologies." class="img-responsive">
             </div>
             <h3>Power electronics</h3>
             <p>Custom Interleaved Buck Boost, FPGA-controlled and with active PFC. Conventional MOSFET, GaN, and SiC technologies.</p>
@@ -114,7 +116,7 @@
         
         <div class="card">
             <div class="img-container">
-                <img src="../img/embarqindus.png" alt="Embedded systems C/C++/Python" class="img-responsive">
+                <img src="../img/embarqindus.png?v=1780916694" alt="Embedded systems C/C++/Python" class="img-responsive">
             </div>
             <h3>Software / Firmware</h3>
             <p>Embedded systems C/C++/Python</p>
@@ -122,13 +124,14 @@
         
         <div class="card">
             <div class="img-container">
-                <img src="../img/simEM3D.png" alt="CST Microwave Studio, SPICE..." class="img-responsive">
+                <img src="../img/simEM3D.png?v=1780916694" alt="CST Microwave Studio, SPICE..." class="img-responsive">
             </div>
             <h3>Simulation / Electromagnetic simulation</h3>
             <p>CST Microwave Studio, SPICE...</p>
         </div>
         
-    </div> </div> 
+    </div> 
+</div> 
 
 <section class="about_clabs" id="section-2" style="margin-top: 4rem; text-align: center;">
     <h2>About CoreLabs</h2>
@@ -142,6 +145,7 @@
 </footer>
 
 <script>
+    // Control de la lupa interactiva en las imágenes
     document.querySelectorAll('.img-container').forEach(container => {
         const img = container.querySelector('img');
 
@@ -167,7 +171,6 @@
                 e.stopPropagation();
                 const dropdown = this.nextElementSibling;
                 if (dropdown) {
-                    // Leemos el estilo real computado en pantalla para evitar falsos vacíos ""
                     const currentDisplay = window.getComputedStyle(dropdown).display;
                     if (currentDisplay === 'block') {
                         dropdown.style.setProperty('display', 'none', 'important');
