@@ -6,7 +6,7 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">        
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Balun Silabs | CoreLabs Engineering</title>
+    <title>Synthesis of Lossless Constant-Impedance Lumped-Element Phase Shifters Using Uncoupled Inductors | CoreLabs Engineering</title>
     
     <link rel="stylesheet" href="../css/styles.css?v=1781006829">
     
@@ -73,19 +73,81 @@
 
 <article class="container" style="margin-top: 2rem; max-width: 800px;">
     <header style="margin-bottom: 2rem; border-bottom: 2px solid #eee; padding-bottom: 1rem;">
-        <span style="color: gray; font-size: 0.9rem;">Published on: 2026-01-01</span>
-        <h1 style="color: var(--azul-corelabs); margin: 0.5rem 0; font-size: 2.5rem;">Balun Silabs</h1>
-        <p style="font-style: italic; color: #555; font-size: 1.1rem; line-height: 1.5;">Legacy PDF document stream.</p>
+        <span style="color: gray; font-size: 0.9rem;">Published on: 2026-06-08</span>
+        <h1 style="color: var(--azul-corelabs); margin: 0.5rem 0; font-size: 2.5rem;">Synthesis of Lossless Constant-Impedance Lumped-Element Phase Shifters Using Uncoupled Inductors</h1>
+        <p style="font-style: italic; color: #555; font-size: 1.1rem; line-height: 1.5;">Technical paper compiled natively from LaTeX source document.</p>
     </header>
 
     <div class="article-content">
-        
-    <div class="pdf-viewer-frame" style="margin: 2rem 0; width: 100%;">
-        <object data="pdf/balun_silabs.pdf#page=1" type="application/pdf" width="100%" height="900px" style="border: 1px solid #ccc; border-radius: 4px;">
-            <iframe src="pdf/balun_silabs.pdf#page=1" width="100%" height="900px" style="border: none;"></iframe>
-        </object>
-    </div>
-    
+        <h1 id="introduction">Introduction</h1>
+<p>Most techniques for realizing narrowband phase-shifting systems rely
+on microwave transmission lines or active approaches—such as RC
+polyphase networks—in CMOS technology. In the HF and low-frequency
+bands, this poses a significant challenge for systems requiring a
+lossless network with controlled impedance, as transmission lines become
+prohibitively long. The bridged-T topology employed in Tektronix
+oscilloscopes during the 1970s satisfies the lumped-element requirement;
+however, it requires coupled inductors with a strictly controlled
+coupling coefficient. Herein, we present a lumped-element alternative
+that eliminates the need for coupled inductors.</p>
+<figure id="fig:figpolyphase" data-latex-placement="H">
+<img src="img/rcpolyphase.png" style="width:60.0%" />
+<figcaption>RC Polyphase network used in CMOS IC</figcaption>
+</figure>
+<figure id="fig:figtcoil" data-latex-placement="H">
+<img src="img/bridgedT.png" style="width:60.0%" />
+<figcaption>Bridged T coil</figcaption>
+</figure>
+<h1 id="general-properties-of-phase-shift-networks">General properties
+of phase shift networks</h1>
+<p>Phase shift networks have two main properties, giving the following
+transfer function:</p>
+<p><span class="math display">\[\begin{equation}
+H\left(s\right) = \frac{\prod_{k=0}^{N} A_k s^k}{ \prod_{k=0}^{M} B_k
+s^k}
+\end{equation}\]</span></p>
+<p>They meet these requeriments: <span
+class="math display">\[\begin{gather}
+|H\left(s\right)|_{s=j\omega} = 1 \text{   }\forall \omega\\
+\phi = arg\left(H\left(s\right)\right)
+\end{gather}\]</span></p>
+<p>Since passive losless network must be stable, all poles of
+denomitator must lie on letf-hand complex plane, the numerator is not
+submitted to this restriction so: <span
+class="math display">\[\begin{equation}
+H\left(s\right) = \frac{\prod_{k=0}^{N} (-1)^kA_k s^k}{ \prod_{k=0}^{N}
+A_k s^k} = \frac{A_0 - A_1 s + A_2 s^2 - A_2 s^3 +...+(-1)^n A_n
+s^n  }{A_0 + A_1 s + A_2 s^2 + A_2 s^3 +...+A_n s^n}
+\end{equation}\]</span></p>
+<p>And : <span class="math display">\[\begin{equation}
+\phi = -2 arg\left(\prod_{k=0}^{N} A_k s^k\right)
+\end{equation}\]</span></p>
+<h1 id="lattice-networks">Lattice Networks</h1>
+<p>Lattice networks are special case of symmetrical networks where shunt
+elements are diagonally crossed, this can provide a number of properties
+that meet the requirements of a phase-shift network. See for example the
+classic LC lattice network:</p>
+<figure id="fig:figlattice0" data-latex-placement="H">
+<img src="img/lattice0.png" style="width:30.0%" />
+<figcaption>LC Lattice network</figcaption>
+</figure>
+<p>The impedance characteristis of this type of network is simply: <span
+class="math display">\[\begin{equation}
+Z_0 = \sqrt{\frac{L}{C}}
+\end{equation}\]</span></p>
+<p>This type of network is ofteh used as narrowband balun:</p>
+<figure id="fig:fignb_balun" data-latex-placement="H">
+<img src="img/lattice_balun.png" style="width:50.0%" />
+<figcaption>Narrowband balun where <span class="math inline">\(V_a =
+V_b\)</span></figcaption>
+</figure>
+<h1 id="coming-soon....">Coming soon....</h1>
+<p><span>This article is under development and will be completed
+shortly.</span></p>
+<figure data-latex-placement="H">
+<img src="img/comingsooon.png" style="width:80.0%" />
+</figure>
+
     </div>
 
     
