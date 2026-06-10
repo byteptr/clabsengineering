@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Synthesis of Lossless Constant-Impedance Lumped-Element Phase Shifters Using Uncoupled Inductors | CoreLabs Engineering</title>
     
-    <link rel="stylesheet" href="../css/styles.css?v=1781037531">
+    <link rel="stylesheet" href="../css/styles.css?v=1781100703">
     
     <script>
         window.MathJax = {
@@ -24,7 +24,7 @@
 
 <nav>
     <a href="../en/index.html">
-        <img src="../clabslogo.svg?v=1781037531" alt="CoreLabs Engineering" class="logo-img">
+        <img src="../clabslogo.svg?v=1781100703" alt="CoreLabs Engineering" class="logo-img">
     </a>     
 
     <ul class="menu-nav">
@@ -126,20 +126,96 @@ A_k s^k}\\  H\left(s\right) = \frac{A_0 - A_1 s + A_2 s^2 - A_2 s^3
 elements are diagonally crossed, this can provide a number of properties
 that meet the requirements of a phase-shift network. See for example the
 classic LC lattice network:</p>
+<figure id="fig:figlattice_netw" data-latex-placement="H">
+<img src="img/lattice_presentation.png" />
+<figcaption>Lattice network</figcaption>
+</figure>
+<p>Where: <span class="math display">\[\begin{gather}
+Z_{open} = \frac{1}{2}\left(Z_A+Z_B\right)\\
+Z_{short} = 2\frac{Z_AZ_B}{\left(Z_A+Z_B\right)}\\
+Z_o = \sqrt{Z_{open}Z_{short}} = \sqrt{Z_AZ_B}
+\end{gather}\]</span></p>
+<p>In fact, the beahvior of lattice networkks can be described through Z
+parameters: <span class="math display">\[\begin{gather}
+\begin{bmatrix}
+Z_{11} &amp; Z_{12}\\
+Z_{21} &amp; Z_{22}\\
+\end{bmatrix}
+\begin{bmatrix}
+I_1 \\
+I_2
+\end{bmatrix} =
+\begin{bmatrix}
+V_1 \\
+V_2
+\end{bmatrix} \\
+\mathbf{Z} =
+\begin{bmatrix}
+\frac{1}{2}\left(Z_A+Z_B\right) &amp; \frac{1}{2}\left(Z_B-Z_A\right)\\
+\frac{1}{2}\left(Z_B-Z_A\right) &amp; \frac{1}{2}\left(Z_A+Z_B\right)\\
+\end{bmatrix}
+\end{gather}\]</span></p>
+<p>A special case is when output port (port 2) is loaded with
+cuadripole’s characteristic impedance since <span
+class="math inline">\(I_2 = \frac{-V_2}{Z_o}\)</span>: <span
+class="math display">\[\begin{gather}
+\begin{bmatrix}
+Z_{11} &amp; Z_{12}\\
+Z_{21} &amp; Z_{22}\\
+\end{bmatrix}
+\begin{bmatrix}
+I_1 \\
+\frac{-V_2}{Z_o}
+\end{bmatrix} =
+\begin{bmatrix}
+V_1 \\
+V_2
+\end{bmatrix}
+\end{gather}\]</span> Taking the second row, leads us to: <span
+class="math display">\[\begin{gather}
+I_1 = \frac{V_2}{Z_{21}}\left(1+\frac{Z_{22}}{Z_o}\right)\\
+\left(\frac{Z_{11}Z_o+Z_{11}Z_{22}-Z_{12}Z_{21}}{Z_{21}Z_o}\right) V_2 =
+V_1
+\end{gather}\]</span></p>
+<p>But <span class="math inline">\(Z_{11}Z_{22}-Z_{12}Z_{21} =
+\Delta\mathbf{Z} = Z_o^2\)</span> Since is symmetrical network.</p>
+<p><span class="math display">\[\begin{gather}
+\frac{V_2}{V_1} = \frac{Z_{11}+Z_o}{Z_{21}}\\
+\frac{V_2}{V_1} =
+\frac{\frac{1}{2}\left(Z_A+Z_B\right)+Z_o}{\frac{1}{2}\left(Z_B-Z_A\right)}\\
+\frac{V_2}{V_1} = \frac{Z_A+Z_B+2Z_o}{Z_B-Z_A} =
+\frac{\left(\sqrt{Z_A}+\sqrt{Z_B}\right)^2}{\left(\sqrt{Z_B}-\sqrt{Z_A}\right)\left(\sqrt{Z_A}+\sqrt{Z_B}\right)}\\
+\frac{V_2}{V_1} =
+\frac{\left(\sqrt{Z_A}+\sqrt{Z_B}\right)}{\left(\sqrt{Z_B}-\sqrt{Z_A}\right)}\\
+\boxed{\frac{V_2}{V_1} = \frac{Z_B+Z_o}{Z_B-Z_o} =
+\frac{Z_o+Z_A}{Z_o-Z_A}}
+\end{gather}\]</span></p>
+<p>Since <span class="math inline">\(Z_o = \sqrt{Z_AZ_B}\)</span> it
+would be desirable to have a dual pair impedances to have <span
+class="math inline">\(Z_o\)</span> frequency independent. The simplest
+non dissipative case is the LC Lattice network:</p>
 <figure id="fig:figlattice0" data-latex-placement="H">
 <img src="img/lattice0.png" style="width:30.0%" />
 <figcaption>LC Lattice network</figcaption>
 </figure>
-<p>The impedance characteristis of this type of network is simply: <span
+<p>The characteristic impedance of this type of network is simply: <span
 class="math display">\[\begin{equation}
 Z_0 = \sqrt{\frac{L}{C}}
 \end{equation}\]</span></p>
-<p>This type of network is ofteh used as narrowband balun:</p>
+<p>This type of network is often used as narrowband balun:</p>
 <figure id="fig:fignb_balun" data-latex-placement="H">
 <img src="img/lattice_balun.png" style="width:50.0%" />
 <figcaption>Narrowband balun where <span class="math inline">\(V_a =
 V_b\)</span></figcaption>
 </figure>
+<p>This balun works at : <span class="math display">\[\begin{gather}
+L = \frac{Z_o}{\omega_0}\\
+C = \frac{1}{Z_o\omega_0}
+\end{gather}\]</span></p>
+<p>Lattices are great, making phase shifters. however they are balanced
+networks and they can’t be connected directly to ground on both sides,
+because we are breaking horizontal axis symmetry shunting one of the
+series impedances.</p>
 <h1 id="coming-soon....">Coming soon....</h1>
 <p><span>This article is under development and will be completed
 shortly.</span></p>
