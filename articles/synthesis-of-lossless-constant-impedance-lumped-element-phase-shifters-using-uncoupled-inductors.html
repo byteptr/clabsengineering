@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Synthesis of Lossless Constant-Impedance Lumped-Element Phase Shifters Using Uncoupled Inductors | CoreLabs Engineering</title>
     
-    <link rel="stylesheet" href="../css/styles.css?v=1781101536">
+    <link rel="stylesheet" href="../css/styles.css?v=1781117592">
     
     <script>
         window.MathJax = {
@@ -24,7 +24,7 @@
 
 <nav>
     <a href="../en/index.html">
-        <img src="../clabslogo.svg?v=1781101536" alt="CoreLabs Engineering" class="logo-img">
+        <img src="../clabslogo.svg?v=1781117592" alt="CoreLabs Engineering" class="logo-img">
     </a>     
 
     <ul class="menu-nav">
@@ -52,11 +52,11 @@
                         
                         <li><a href="articles_index.html">View All Portfolio</a></li>
                         
-                        <li><a href="synthesis-of-lossless-constant-impedance-lumped-element-phase-shifters-using-uncoupled-inductors.html?v=1781101536">Synthesis of Lossless Constant-Impedance Lumped-Element Phase Shifters Using Uncoupled Inductors</a></li>
+                        <li><a href="synthesis-of-lossless-constant-impedance-lumped-element-phase-shifters-using-uncoupled-inductors.html?v=1781117592">Synthesis of Lossless Constant-Impedance Lumped-Element Phase Shifters Using Uncoupled Inductors</a></li>
                         
-                        <li><a href="pyfsm.html?v=1781101536">Pyfsm</a></li>
+                        <li><a href="pyfsm.html?v=1781117592">Pyfsm</a></li>
                         
-                        <li><a href="balun-silabs.html?v=1781101536">Balun Silabs</a></li>
+                        <li><a href="balun-silabs.html?v=1781117592">Balun Silabs</a></li>
                         
                     </ul>
                 </li>
@@ -180,15 +180,17 @@ V_1
 <p>But <span class="math inline">\(Z_{11}Z_{22}-Z_{12}Z_{21} =
 \Delta\mathbf{Z} = Z_o^2\)</span> Since is symmetrical network.</p>
 <p><span class="math display">\[\begin{gather}
-\frac{V_2}{V_1} = \frac{Z_{11}+Z_o}{Z_{21}}\\
+\frac{V_2}{V_1} = \frac{Z_{21}}{Z_{11}+Z_o}\\
 \frac{V_2}{V_1} =
-\frac{\frac{1}{2}\left(Z_A+Z_B\right)+Z_o}{\frac{1}{2}\left(Z_B-Z_A\right)}\\
-\frac{V_2}{V_1} = \frac{Z_A+Z_B+2Z_o}{Z_B-Z_A} =
-\frac{\left(\sqrt{Z_A}+\sqrt{Z_B}\right)^2}{\left(\sqrt{Z_B}-\sqrt{Z_A}\right)\left(\sqrt{Z_A}+\sqrt{Z_B}\right)}\\
+\frac{\frac{1}{2}\left(Z_B-Z_A\right)}{\frac{1}{2}\left(Z_A+Z_B\right)+Z_o}\\
+\frac{V_2}{V_1} = \frac{Z_B-Z_A}{Z_A+Z_B+2Z_o} =
+\frac{\left(\sqrt{Z_B}-\sqrt{Z_A}\right)\left(\sqrt{Z_A}+\sqrt{Z_B}\right)}{\left(\sqrt{Z_A}+\sqrt{Z_B}\right)^2}\\
 \frac{V_2}{V_1} =
-\frac{\left(\sqrt{Z_A}+\sqrt{Z_B}\right)}{\left(\sqrt{Z_B}-\sqrt{Z_A}\right)}\\
-\boxed{\frac{V_2}{V_1} = \frac{Z_B+Z_o}{Z_B-Z_o} =
-\frac{Z_o+Z_A}{Z_o-Z_A}}
+\frac{\left(\sqrt{Z_B}-\sqrt{Z_A}\right)}{\left(\sqrt{Z_A}+\sqrt{Z_B}\right)}\\
+\frac{V_2}{V_1} =
+\frac{\left(\sqrt{Z_B}-\frac{Z_o}{\sqrt{Z_B}}\right)}{\left(\sqrt{Z_B}+\frac{Z_o}{\sqrt{Z_B}}\right)}\\
+\boxed{\frac{V_2}{V_1} = \frac{Z_B-Z_o}{Z_B+Z_o} =
+\frac{Z_o-Z_A}{Z_o+Z_A}}
 \end{gather}\]</span></p>
 <p>Since <span class="math inline">\(Z_o = \sqrt{Z_AZ_B}\)</span> it
 would be desirable to have a dual pair impedances to have <span
@@ -210,9 +212,38 @@ V_b\)</span></figcaption>
 </figure>
 <p>This balun works at : <span class="math display">\[\begin{gather}
 L = \frac{Z_o}{\omega_0}\\
-C = \frac{1}{Z_o\omega_0}
+C = \frac{1}{Z_o\omega_0}\\
+\end{gather}\]</span> let us assume loading at output with <span
+class="math inline">\(Z_o\)</span> or <span
+class="math inline">\(Z_o/2\)</span> at both <span
+class="math inline">\(V_a\)</span> and <span
+class="math inline">\(V_b\)</span> from ground.</p>
+<p><span class="math display">\[\begin{gather}
+V_a = V_g \frac{\frac{1}{j\omega C}||\frac{Z_o}{2}}{j\omega L +
+\frac{1}{j\omega C}||\frac{Z_o}{2}}\\
+V_b = -V_g \frac{j\omega L ||\frac{Z_o}{2}}{\frac{1}{j\omega C} +
+j\omega L||\frac{Z_o}{2}}
 \end{gather}\]</span></p>
-<p>Lattices are great, making phase shifters. however they are balanced
+<p>so:</p>
+<p><span class="math display">\[\begin{gather}
+V_a = V_g \frac{\frac{Z_o}{2}}{\frac{Z_o}{2}
+\left(1-\omega^2LC\right)+j\omega L} \\
+V_b = V_g  \frac{\omega^2 LC \frac{Z_o}{2}}{\left(1-\omega^2
+LC\right)\frac{Z_o}{2} +j\omega L}
+\end{gather}\]</span></p>
+<p>Since <span class="math inline">\(LC = 1/\omega_0^2\)</span> Many
+terms cancels at desired frequency <span class="math inline">\(\omega_0
+= 2\pi f_0\)</span>: <span class="math display">\[\begin{gather}
+V_a = V_g \frac{\frac{Z_o}{2}}{j\omega_0 \frac{Z_o}{\omega_0}} =
+-j\frac{V_g}{2}\\
+V_b = V_g  \frac{\frac{Z_o}{2}}{j\omega \frac{Z_o}{\omega_0}} =
+-j\frac{V_g}{2}
+\end{gather}\]</span> Since <span class="math inline">\(V_a\)</span>
+arrow has opposite direction from <span
+class="math inline">\(V_b\)</span> arrow, same sign take into account
+shows <span class="math inline">\(180^{\circ}\)</span> phase
+shift.<br />
+Lattices are great, making phase shifters. however they are balanced
 networks and they can’t be connected directly to ground on both sides,
 because we are breaking horizontal axis symmetry shunting one of the
 series impedances.</p>
