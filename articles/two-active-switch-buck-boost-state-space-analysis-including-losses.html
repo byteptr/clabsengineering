@@ -7,7 +7,7 @@
     <meta http-equiv="Expires" content="0">        
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Two active switch Buck-Boost State Space analysis including losses | CoreLabs Engineering</title>
-    <link rel="stylesheet" href="../css/styles.css?v=1782118443">
+    <link rel="stylesheet" href="../css/styles.css?v=1782123190">
     <script>
         window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] } };
     </script>
@@ -17,7 +17,7 @@
 
 <nav>
     <a href="../en/index.html">
-        <img src="../clabslogo.svg?v=1782118443" alt="CoreLabs Engineering" class="logo-img">
+        <img src="../clabslogo.svg?v=1782123190" alt="CoreLabs Engineering" class="logo-img">
     </a>     
     <ul class="menu-nav">
         
@@ -38,7 +38,7 @@
             
         
             
-                <li class="menu-item"><a href="../news/news.html?v=1782118443">News</a></li>
+                <li class="menu-item"><a href="../news/news.html?v=1782123190">News</a></li>
             
         
             
@@ -46,15 +46,15 @@
                     <a href="#">Technical Articles ▾</a>
                     <ul class="dropdown-menu">
                         
-                        <li><a href="articles_index.html?v=1782118443">View All Portfolio</a></li>
+                        <li><a href="articles_index.html?v=1782123190">View All Portfolio</a></li>
                         
-                        <li><a href="two-active-switch-buck-boost-state-space-analysis-including-losses.html?v=1782118443">Two active switch Buck-Boost State Space analysis including losses</a></li>
+                        <li><a href="two-active-switch-buck-boost-state-space-analysis-including-losses.html?v=1782123190">Two active switch Buck-Boost State Space analysis including losses</a></li>
                         
-                        <li><a href="synthesis-of-lossless-constant-impedance-lumped-element-phase-shifters-using-uncoupled-inductors.html?v=1782118443">Synthesis of Lossless Constant-Impedance Lumped-Element Phase Shifters Using Uncoupled Inductors</a></li>
+                        <li><a href="synthesis-of-lossless-constant-impedance-lumped-element-phase-shifters-using-uncoupled-inductors.html?v=1782123190">Synthesis of Lossless Constant-Impedance Lumped-Element Phase Shifters Using Uncoupled Inductors</a></li>
                         
-                        <li><a href="pyfsm.html?v=1782118443">Pyfsm</a></li>
+                        <li><a href="pyfsm.html?v=1782123190">Pyfsm</a></li>
                         
-                        <li><a href="balun-silabs.html?v=1782118443">Balun Silabs</a></li>
+                        <li><a href="balun-silabs.html?v=1782123190">Balun Silabs</a></li>
                         
                     </ul>
                 </li>
@@ -96,15 +96,13 @@ and gate-drive conditions.</p>
 <h1 id="non-inverting-buck-boost">Non inverting Buck-Boost</h1>
 <p>The non-inverting buck-boost topology with two active switches is
 shown below:</p>
+<figure id="fig:topologia_propuesta" data-latex-placement="H">
 <div class="center">
-<figure>
-<img src="img/topologia_cir2.png" id="fig:topologia_propuesta"
-style="width:50.0%"
-alt="Two active switch non-inverting buck boost converter." />
-<figcaption aria-hidden="true">Two active switch non-inverting buck
-boost converter.</figcaption>
-</figure>
+<img src="img/topologia_cir2.png" style="width:50.0%" />
 </div>
+<figcaption>Two active switch non-inverting buck boost
+converter.</figcaption>
+</figure>
 <p>In this topology, the two switching elements of the Buck and Boost
 topologies have been combined, preserving the energy-storage elements L
 and C, respectively. The switch parameters <span
@@ -124,62 +122,66 @@ elements, this state merely introduces dissipation losses across the
 various components without contributing to any significant energy
 transfer.</p>
 <div class="center">
-<div class="tabular">
-<p><span>cc</span> &amp;</p>
 <table>
 <tbody>
-<tr class="odd">
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><table>
+<tbody>
+<tr>
 <td style="text-align: center;"><span
 class="math inline">\(\bullet\)</span></td>
 <td style="text-align: left;"><span class="math inline">\(E_0:
 (0,0)\)</span></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"><span
 class="math inline">\(\bullet\)</span></td>
 <td style="text-align: left;"><span class="math inline">\(E_1:
 (1,0)\)</span></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"><span><span
 class="math inline">\(\bullet\)</span></span></td>
 <td style="text-align: left;"><span><span class="math inline">\(E_2:
 (0,1)\)</span></span></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"><span
 class="math inline">\(\bullet\)</span></td>
 <td style="text-align: left;"><span class="math inline">\(E_3:
 (1,1)\)</span></td>
 </tr>
 </tbody>
+</table></td>
+</tr>
+</tbody>
 </table>
-</div>
 </div>
 <p>This imposes the following constraint: <span
 class="math inline">\(\delta_2 \leq \delta_1\)</span></p>
+<figure id="fig:restriccion_delta" data-latex-placement="H">
 <div class="center">
-<figure>
-<img src="img/pulser_restriccion.png" id="fig:restriccion_delta"
-style="width:35.0%"
-alt="General topology of a single pulse generator." />
-<figcaption aria-hidden="true">General topology of a single pulse
-generator.</figcaption>
-</figure>
+<img src="img/pulser_restriccion.png" style="width:35.0%" />
 </div>
+<figcaption>General topology of a single pulse generator.</figcaption>
+</figure>
 <h3 id="state-space-analysis">State space analysis</h3>
 <h4 id="static-analysis">Static analysis:</h4>
 <p>Let us define the load voltage as the variable <span
 class="math inline">\(x_1\)</span> and the current as <span
 class="math inline">\(x_2\)</span>. The state-space analysis is
 formulated as follows:</p>
-<p><span class="math display">\[\begin{pmatrix}
+<p><span class="math display">\[\begin{equation}
+\begin{pmatrix}
 \dot{x}_1\\
 \dot{x}_2
 \end{pmatrix} =
-E_0(1-\delta_1)+E_1(\delta_1-\delta_2)+E_3\delta_2\]</span></p>
+E_0(1-\delta_1)+E_1(\delta_1-\delta_2)+E_3\delta_2
+\end{equation}\]</span></p>
 <p>State <span class="math inline">\(E_0\)</span> <span
-class="math display">\[\begin{pmatrix}
+class="math display">\[\begin{equation}
+\begin{pmatrix}
 \dot{x}_1\\
 \dot{x}_2
 \end{pmatrix} =
@@ -190,9 +192,11 @@ class="math display">\[\begin{pmatrix}
 \begin{pmatrix}
 x_1\\
 x_2
-\end{pmatrix}\]</span></p>
+\end{pmatrix}
+\end{equation}\]</span></p>
 <p>State <span class="math inline">\(E_1\)</span> <span
-class="math display">\[\begin{pmatrix}
+class="math display">\[\begin{equation}
+\begin{pmatrix}
 \dot{x}_1\\
 \dot{x}_2
 \end{pmatrix} =
@@ -207,9 +211,11 @@ x_2
 \begin{pmatrix}
 0\\
 \frac{V_i}{L}
-\end{pmatrix}\]</span></p>
+\end{pmatrix}
+\end{equation}\]</span></p>
 <p>State <span class="math inline">\(E_3\)</span> <span
-class="math display">\[\begin{pmatrix}
+class="math display">\[\begin{equation}
+\begin{pmatrix}
 \dot{x}_1\\
 \dot{x}_2
 \end{pmatrix} =
@@ -224,10 +230,12 @@ x_2
 \begin{pmatrix}
 0\\
 \frac{V_i}{L}
-\end{pmatrix}\]</span></p>
+\end{pmatrix}
+\end{equation}\]</span></p>
 <p>Yielding the averaged model<a href="#fn1" class="footnote-ref"
 id="fnref1" role="doc-noteref"><sup>1</sup></a>:</p>
-<p><span class="math display">\[\begin{pmatrix}
+<p><span class="math display">\[\begin{equation}
+\begin{pmatrix}
 \dot{x}_1\\
 \dot{x}_2
 \end{pmatrix} =
@@ -242,14 +250,17 @@ x_2
 \begin{pmatrix}
 0\\
 \frac{V_i \delta_1}{L}
-\end{pmatrix}\]</span></p>
+\end{pmatrix}
+\end{equation}\]</span></p>
 <p>Considering the equilibrium points of the dynamic system, <span
 class="math inline">\(\dot{x}_1 = 0\)</span> and <span
 class="math inline">\(\dot{x}_2 = 0\)</span>:</p>
-<p><span class="math display">\[\boxed{x_1 =
-V_i\frac{\delta_1}{1-\delta_2}}\]</span></p>
-<p><span class="math display">\[\boxed{x_2 =
-V_i\frac{\delta_1}{R\cdot(1-\delta_2)^2}}\]</span></p>
+<p><span class="math display">\[\begin{equation}
+\boxed{x_1 = V_i\frac{\delta_1}{1-\delta_2}}
+\end{equation}\]</span></p>
+<p><span class="math display">\[\begin{equation}
+\boxed{x_2 = V_i\frac{\delta_1}{R\cdot(1-\delta_2)^2}}
+\end{equation}\]</span></p>
 <h4 id="dynamic-analysis">Dynamic Analysis:</h4>
 <p>Revisiting the dynamic equations of the boost stage, the DC term
 <span class="math inline">\(\frac{V_i}{L}\)</span> is now replaced by
@@ -258,7 +269,8 @@ decomposed into two components according to small-signal perturbation
 theory: <span
 class="math inline">\(\frac{V_i(\delta_1+\hat{\delta}_1)}{L}\)</span>.
 Analyzing this in the Laplace domain yields:</p>
-<p><span class="math display">\[\left\{
+<p><span class="math display">\[\begin{equation}
+\left\{
 \begin{matrix}
 s\hat{X}_1(s) =&amp; -\frac{X_1(s)}{RC}+
 \left(\frac{1-\delta_2}{C}\right)\hat{X}_2(s) - \frac{X_2(s)}{R}
@@ -266,18 +278,22 @@ s\hat{X}_1(s) =&amp; -\frac{X_1(s)}{RC}+
 s\hat{X}_2(s) =&amp; -\frac{1-\delta_2}{L}\hat{X}_1(s) +
 \frac{X_1}{L}\hat{\delta}_2(s)+
 \frac{V_i}{L}\hat{\delta}_1(s)
-\end{matrix}\right.\]</span></p>
+\end{matrix}\right.
+\end{equation}\]</span></p>
 <p>Solving for the voltage, we have:</p>
-<p><span class="math display">\[\hat{X}_1(s) = \frac{\frac{1}{LC}}{s^2+
-\left(\frac{1}{RC}\right)s + \frac{(1-\delta_2)^2}{LC}} \cdot
+<p><span class="math display">\[\begin{equation}
+\hat{X}_1(s) = \frac{\frac{1}{LC}}{s^2+ \left(\frac{1}{RC}\right)s +
+\frac{(1-\delta_2)^2}{LC}} \cdot
 \left[
 (1-\delta_2)V_i\hat{\delta}_1(s)+
 \left((1-\delta_2)X_1-X_2Ls \right)\hat{\delta}_2(s)
-\right]\]</span></p>
+\right]
+\end{equation}\]</span></p>
 <p>Substituting the equilibrium points for <span
 class="math inline">\(X_1\)</span> and <span
 class="math inline">\(X_2\)</span> finally yields:</p>
-<p><span class="math display">\[\boxed{
+<p><span class="math display">\[\begin{equation}
+\boxed{
 \hat{X}_1(s) = \frac{\frac{1}{LC}V_i}{s^2+ \left(\frac{1}{RC}\right)s +
 \frac{(1-\delta_2)^2}{LC}} \cdot
 \begin{pmatrix}
@@ -288,7 +304,8 @@ class="math inline">\(X_2\)</span> finally yields:</p>
 \hat{\delta}_1(s)\\
 \hat{\delta}_2(s)
 \end{pmatrix}
-}\]</span></p>
+}
+\end{equation}\]</span></p>
 <h3 id="loss-analysis">Loss Analysis</h3>
 <p>Analysis considering losses is essential as it enables the
 quantification of conduction power losses, the generated heat, and
@@ -301,13 +318,12 @@ loss resistance is associated with a specific active or passive
 component. It should be noted that within this model, the diodes could
 be replaced by MOSFETs under synchronous switching, and the required
 operational limits would remain valid.</p>
+<figure id="fig:modelo_perdidas" data-latex-placement="H">
 <div class="center">
-<figure>
-<img src="img/topologia_cirper_orig.png" id="fig:modelo_perdidas"
-style="width:50.0%" alt="Conduction loss model." />
-<figcaption aria-hidden="true">Conduction loss model.</figcaption>
-</figure>
+<img src="img/topologia_cirper_orig.png" style="width:50.0%" />
 </div>
+<figcaption>Conduction loss model.</figcaption>
+</figure>
 <p>Once again, the state variables are defined as <span
 class="math inline">\(x_1=V_C\)</span> and <span
 class="math inline">\(x_2=i_l\)</span>. Furthermore, since the output
@@ -315,51 +331,56 @@ voltage is of interest, it must be related to the state variable <span
 class="math inline">\(x_1\)</span>, given that <span
 class="math inline">\(V_C \neq V_R\)</span> in the lossy case. The
 resulting state-space model is given by:</p>
-<p><span class="math display">\[\begin{matrix}
+<p><span class="math display">\[\begin{equation}
+\begin{matrix}
 \dot{x} = &amp; Ax+Bu\\
 y = &amp; Cx\\
-\end{matrix}\]</span></p>
+\end{matrix}
+\end{equation}\]</span></p>
 <p>Next, each of the states is analyzed, and the C matrix is also
 determined.</p>
 <h4 id="state-e_0">State <span class="math inline">\(E_0\)</span></h4>
 <p>With both <span class="math inline">\(\delta_1\)</span> and <span
 class="math inline">\(\delta_2\)</span> open, the system yields:</p>
+<figure id="fig:modelo_perdidas_e0" data-latex-placement="H">
 <div class="center">
-<figure>
-<img src="img/topologia_cirper_modo00.png" id="fig:modelo_perdidas_e0"
-style="width:50.0%" alt=" E_0 State loss model." />
-<figcaption aria-hidden="true"> <span class="math inline">\(E_0\)</span>
-State loss model.</figcaption>
-</figure>
+<img src="img/topologia_cirper_modo00.png" style="width:50.0%" />
 </div>
-<p><span class="math display">\[\begin{pmatrix}
+<figcaption> <span class="math inline">\(E_0\)</span> State loss
+model.</figcaption>
+</figure>
+<p><span class="math display">\[\begin{equation}
+\begin{pmatrix}
 \dot{x}_1 \\
 \dot{x}_2
 \end{pmatrix} =
 \begin{pmatrix}
 -\frac{1}{C(R+r_C)} &amp; \frac{R}{C(R+r_C)}\\
 -\frac{R}{L(R+r_C)} &amp; -\frac{r_{D1}+r_{D2}+r_l+r_C||R}{L}\\
-\end{pmatrix}\]</span></p>
+\end{pmatrix}
+\end{equation}\]</span></p>
 <p>Furthermore, matrix C is obtained by superposition as a linear
 combination of <span class="math inline">\(i_L\)</span> and <span
 class="math inline">\(V_C\)</span>, accounting for its Thévenin
 impedance <span class="math inline">\(r_C\)</span>:</p>
-<p><span class="math display">\[C = \begin{pmatrix}
+<p><span class="math display">\[\begin{equation}
+C = \begin{pmatrix}
 \frac{R}{R+r_C} &amp;
 \frac{r_CR}{R+r_C}
-\end{pmatrix}\]</span></p>
+\end{pmatrix}
+\end{equation}\]</span></p>
 <h4 id="state-e_1">State <span class="math inline">\(E_1\)</span></h4>
 <p>With <span class="math inline">\(\delta_1\)</span> closed and <span
 class="math inline">\(\delta_2\)</span> open, we have:</p>
+<figure id="fig:modelo_perdidas_e1" data-latex-placement="H">
 <div class="center">
-<figure>
-<img src="img/topologia_cirper_todos_modo10.png" id="fig:modelo_perdidas_e1"
-style="width:50.0%" alt=" E_1 State loss model." />
-<figcaption aria-hidden="true"> <span class="math inline">\(E_1\)</span>
-State loss model.</figcaption>
-</figure>
+<img src="img/topologia_cirper_todos_modo10.png" style="width:50.0%" />
 </div>
-<p><span class="math display">\[\begin{pmatrix}
+<figcaption> <span class="math inline">\(E_1\)</span> State loss
+model.</figcaption>
+</figure>
+<p><span class="math display">\[\begin{equation}
+\begin{pmatrix}
 \dot{x}_1 \\
 \dot{x}_2
 \end{pmatrix} =
@@ -369,24 +390,27 @@ State loss model.</figcaption>
 \end{pmatrix} +
 \begin{pmatrix}
 \frac{V_i}{L}
-\end{pmatrix}\]</span></p>
+\end{pmatrix}
+\end{equation}\]</span></p>
 <p>And the C matrix remains the same as previous state: <span
-class="math display">\[C = \begin{pmatrix}
+class="math display">\[\begin{equation}
+C = \begin{pmatrix}
 \frac{R}{R+r_C} &amp;
 \frac{r_CR}{R+r_C}
-\end{pmatrix}\]</span></p>
+\end{pmatrix}
+\end{equation}\]</span></p>
 <h4 id="state-e_3">State <span class="math inline">\(E_3\)</span></h4>
 <p>Con <span class="math inline">\(\delta_1\)</span> y <span
 class="math inline">\(\delta_2\)</span> cerrados, tenemos:</p>
+<figure id="fig:modelo_perdidas_e3" data-latex-placement="H">
 <div class="center">
-<figure>
-<img src="img/topologia_cirper_todos_modo11.png" id="fig:modelo_perdidas_e3"
-style="width:50.0%" alt="E_3 State loss model." />
-<figcaption aria-hidden="true"><span class="math inline">\(E_3\)</span>
-State loss model.</figcaption>
-</figure>
+<img src="img/topologia_cirper_todos_modo11.png" style="width:50.0%" />
 </div>
-<p><span class="math display">\[\begin{pmatrix}
+<figcaption><span class="math inline">\(E_3\)</span> State loss
+model.</figcaption>
+</figure>
+<p><span class="math display">\[\begin{equation}
+\begin{pmatrix}
 \dot{x}_1 \\
 \dot{x}_2
 \end{pmatrix} =
@@ -396,11 +420,15 @@ State loss model.</figcaption>
 \end{pmatrix} +
 \begin{pmatrix}
 \frac{V_i}{L}
-\end{pmatrix}\]</span> <span class="math display">\[C = \begin{pmatrix}
+\end{pmatrix}
+\end{equation}\]</span> <span class="math display">\[\begin{equation}
+C = \begin{pmatrix}
 \frac{R}{R+r_C} &amp; 0
-\end{pmatrix}\]</span></p>
+\end{pmatrix}
+\end{equation}\]</span></p>
 <h4 id="average-loss-model">Average loss model:</h4>
-<p><span class="math display">\[A= \begin{pmatrix}
+<p><span class="math display">\[\begin{equation}
+A= \begin{pmatrix}
 -\frac{1}{C(R+r_C)} &amp; \frac{R(1-\delta_2)}{C(R+r_C)} \\
 -\frac{R(1-\delta_2)}{L(R+r_C)} &amp;
 -\frac{1}{L}\left(
@@ -408,39 +436,49 @@ r_{D1}(1-\delta_1)+r_{D2}(1-\delta_2)+r_l+
 (r_C||R)(1-\delta_2)+r_{T1}\delta_1+r_{T2}\delta_2
 \right)
 \end{pmatrix}
-\label{eq:matriz_A_perdidas}\]</span> <span
-class="math display">\[\large
+\label{eq:matriz_A_perdidas}
+\end{equation}\]</span> <span class="math display">\[\begin{equation}
+\large
 B=\begin{pmatrix}
 0\\
 \frac{V_i\delta_1}{L}
-\end{pmatrix}\]</span> <span class="math display">\[\large
+\end{pmatrix}
+\end{equation}\]</span> <span class="math display">\[\begin{equation}
+\large
 C = \begin{pmatrix}
 \frac{R}{R+r_C} &amp; \frac{Rr_C(1-\delta_2)}{R+r_C}
-\end{pmatrix}\]</span></p>
+\end{pmatrix}
+\end{equation}\]</span></p>
 <h3 id="equilibrium-points-with-losses">Equilibrium Points with
 Losses</h3>
 <p>From average loss model and the equation let’s take in <span
 class="math inline">\(a_{22}\)</span>:</p>
-<p><span class="math display">\[\large
+<p><span class="math display">\[\begin{equation}
+\large
 \varphi
 =  r_{D1}\bar{\delta}_1+r_{D2}\bar{\delta}_2+(r_C||R)\bar{\delta}_2 +
 \delta_1 r_{T1}+ \delta_2 r_{T2}
-\label{eq:cambiovarphi}\]</span> With <span
-class="math display">\[\begin{gathered}
+\label{eq:cambiovarphi}
+\end{equation}\]</span> With <span
+class="math display">\[\begin{gather*}
 \bar{\delta}_1 = 1-\delta_1\\
-\bar{\delta}_2 = 1-\delta_2\end{gathered}\]</span> <a
-href="#eq:matriz_A_perdidas" data-reference-type="eqref"
+\bar{\delta}_2 = 1-\delta_2
+\end{gather*}\]</span> <a href="#eq:matriz_A_perdidas"
+data-reference-type="eqref"
 data-reference="eq:matriz_A_perdidas">[eq:matriz_A_perdidas]</a> We
 have:</p>
-<p><span class="math display">\[\large
+<p><span class="math display">\[\begin{equation}
+\large
 A= \begin{pmatrix}
 -\frac{1}{C(R+r_C)} &amp; \frac{R(1-\delta_2)}{C(R+r_C)} \\
 -\frac{R(1-\delta_2)}{L(R+r_C)} &amp;
 -\frac{\varphi}{L}
 \end{pmatrix}
-\label{eq:matriz_A_perdidas_simplif}\]</span> From this, the
-steady-state operating points for the lossy converter are obtained:</p>
-<p><span class="math display">\[\large
+\label{eq:matriz_A_perdidas_simplif}
+\end{equation}\]</span> From this, the steady-state operating points for
+the lossy converter are obtained:</p>
+<p><span class="math display">\[\begin{equation}
+\large
 \begin{pmatrix}
 -\frac{1}{C(R+r_C)} &amp; \frac{R(1-\delta_2)}{C(R+r_C)} \\
 -\frac{R(1-\delta_2)}{L(R+r_C)} &amp;
@@ -456,8 +494,9 @@ steady-state operating points for the lossy converter are obtained:</p>
 \end{pmatrix}V_i =
 \begin{pmatrix}
 0\\ 0
-\end{pmatrix}\]</span></p>
-<p>We have as solutions: <span class="math display">\[\begin{gathered}
+\end{pmatrix}
+\end{equation}\]</span></p>
+<p>We have as solutions: <span class="math display">\[\begin{gather}
 \large
 \boxed{X_1 =
 \frac{V_i\delta_1\bar{\delta}_2R(R+r_C)}{(R\bar{\delta}_2)^2 +
@@ -468,35 +507,33 @@ steady-state operating points for the lossy converter are obtained:</p>
 \large
 \boxed{V_o =
 \frac{V_i\delta_1\bar{\delta}_2R(1+r_C)}{(R\bar{\delta}_2)^2 +
-\varphi(R+r_C)}}\label{eq:vo_conperdidas}\end{gathered}\]</span></p>
+\varphi(R+r_C)}}\label{eq:vo_conperdidas}
+\end{gather}\]</span></p>
 <p>When compared to the ideal transfer function, <a
 href="#eq:vo_conperdidas" data-reference-type="eqref"
 data-reference="eq:vo_conperdidas">[eq:vo_conperdidas]</a> takes the
 following form:</p>
+<figure data-latex-placement="H">
 <div class="center">
-<figure>
-<img src="img/curvas_rend.png" style="width:50.0%"
-alt="Normalized output versus \delta_1 and total losses relative to the load resistance between 10^{-3} and 10^{-1}, i.e., between 0.1% and 10% of the load resistance value." />
-<figcaption aria-hidden="true">Normalized output versus <span
+<img src="img/curvas_rend.png" style="width:50.0%" />
+</div>
+<figcaption>Normalized output versus <span
 class="math inline">\(\delta_1\)</span> and total losses relative to the
 load resistance between <span class="math inline">\(10^{-3}\)</span> and
 <span class="math inline">\(10^{-1}\)</span>, i.e., between 0.1% and 10%
 of the load resistance value.</figcaption>
 </figure>
-</div>
 <p>A forbidden operating region exists because within it, the sign of
 the slope reverses, completely altering the system dynamics.
 Consequently, it is crucial to characterize the losses of practical
 components and limit the modulation range, which depends entirely on the
 voltage conversion ratio.</p>
+<figure data-latex-placement="H">
 <div class="center">
-<figure>
-<img src="img/curvas_rend_prohib.png" style="width:50.0%"
-alt="Forbidden region with negative slope." />
-<figcaption aria-hidden="true">Forbidden region with negative
-slope.</figcaption>
-</figure>
+<img src="img/curvas_rend_prohib.png" style="width:50.0%" />
 </div>
+<figcaption>Forbidden region with negative slope.</figcaption>
+</figure>
 <h4
 id="calculation-of-the-maximum-duty-cycle-for-given-losses">Calculation
 of the Maximum Duty Cycle for Given Losses:</h4>
@@ -504,28 +541,29 @@ of the Maximum Duty Cycle for Given Losses:</h4>
 href="#eq:cambiovarphi" data-reference-type="eqref"
 data-reference="eq:cambiovarphi">[eq:cambiovarphi]</a> for algebraic
 convenience as follows:</p>
-<p><span class="math display">\[\begin{gathered}
+<p><span class="math display">\[\begin{gather}
 \large
 \varphi = K\bar{\delta}_2+m\\
 K = r_{D2}+R||r_C-r_{T2}\\
-m=r_{D1}\bar{\delta_1}+r_{T1}\delta_1+r_l+r_{T2}\end{gathered}\]</span>
-Parameters <span class="math inline">\(K\)</span> and <span
-class="math inline">\(m\)</span> are referred to as <em>loss
+m=r_{D1}\bar{\delta_1}+r_{T1}\delta_1+r_l+r_{T2}
+\end{gather}\]</span> Parameters <span class="math inline">\(K\)</span>
+and <span class="math inline">\(m\)</span> are referred to as <em>loss
 parameters</em> because they are associated with the system losses.
 Then, its maximum value is calculated from <a href="#eq:vo_conperdidas"
 data-reference-type="eqref"
 data-reference="eq:vo_conperdidas">[eq:vo_conperdidas]</a>:</p>
-<p><span class="math display">\[\frac{\partial V_o}{\partial \delta_2} =
-0\]</span></p>
+<p><span class="math display">\[\begin{equation}
+\frac{\partial V_o}{\partial \delta_2} = 0
+\end{equation}\]</span></p>
 <p>With the following result: <span
-class="math display">\[\begin{gathered}
+class="math display">\[\begin{gather}
 \large
 \boxed{
 V_{oMAX} = \frac{Vi\delta_1}{2\sqrt{\frac{m}{R+r_C}+\frac{K}{R}}}
 }\label{eq:vomax}\\
 \large\boxed{
-\delta_{2MAX} =
-1-\frac{1}{R}\sqrt{m(R+r_C)}}\label{eq:delta2max}\end{gathered}\]</span></p>
+\delta_{2MAX} = 1-\frac{1}{R}\sqrt{m(R+r_C)}}\label{eq:delta2max}
+\end{gather}\]</span></p>
 <h1 id="conclusion">Conclusion</h1>
 <p>In this work, we have obtained both the steady-state and dynamic
 state-space models by employing the state-space averaging technique. We
@@ -581,11 +619,11 @@ Development Manager, Fairchild Semiconductor Europe<br />
 href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.397.892"
 class="uri">http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.397.892</a></p>
 </div>
-<section class="footnotes footnotes-end-of-document"
+<section id="footnotes" class="footnotes footnotes-end-of-document"
 role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1" role="doc-endnote"><p>Note that <span
+<li id="fn1"><p>Note that <span
 class="math inline">\((1-\delta_1)+(\delta_1-\delta_2)+\delta_2 =
 1\)</span><a href="#fnref1" class="footnote-back"
 role="doc-backlink">↩︎</a></p></li>

@@ -7,13 +7,7 @@
     <meta http-equiv="Expires" content="0">        
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Synthesis of Lossless Constant-Impedance Lumped-Element Phase Shifters Using Uncoupled Inductors | CoreLabs Engineering</title>
-<<<<<<< HEAD
-    
-    <link rel="stylesheet" href="../css/styles.css?v=1781118996">
-    
-=======
-    <link rel="stylesheet" href="../css/styles.css?v=1782118443">
->>>>>>> 1d20e3a... Discrete phase shift article restored
+    <link rel="stylesheet" href="../css/styles.css?v=1782123190">
     <script>
         window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] } };
     </script>
@@ -23,11 +17,7 @@
 
 <nav>
     <a href="../en/index.html">
-<<<<<<< HEAD
-        <img src="../clabslogo.svg?v=1781118996" alt="CoreLabs Engineering" class="logo-img">
-=======
-        <img src="../clabslogo.svg?v=1782118443" alt="CoreLabs Engineering" class="logo-img">
->>>>>>> 1d20e3a... Discrete phase shift article restored
+        <img src="../clabslogo.svg?v=1782123190" alt="CoreLabs Engineering" class="logo-img">
     </a>     
     <ul class="menu-nav">
         
@@ -48,7 +38,7 @@
             
         
             
-                <li class="menu-item"><a href="../news/news.html?v=1782118443">News</a></li>
+                <li class="menu-item"><a href="../news/news.html?v=1782123190">News</a></li>
             
         
             
@@ -56,23 +46,15 @@
                     <a href="#">Technical Articles ▾</a>
                     <ul class="dropdown-menu">
                         
-                        <li><a href="articles_index.html?v=1782118443">View All Portfolio</a></li>
+                        <li><a href="articles_index.html?v=1782123190">View All Portfolio</a></li>
                         
-                        <li><a href="two-active-switch-buck-boost-state-space-analysis-including-losses.html?v=1782118443">Two active switch Buck-Boost State Space analysis including losses</a></li>
+                        <li><a href="two-active-switch-buck-boost-state-space-analysis-including-losses.html?v=1782123190">Two active switch Buck-Boost State Space analysis including losses</a></li>
                         
-<<<<<<< HEAD
-                        <li><a href="synthesis-of-lossless-constant-impedance-lumped-element-phase-shifters-using-uncoupled-inductors.html?v=1781118996">Synthesis of Lossless Constant-Impedance Lumped-Element Phase Shifters Using Uncoupled Inductors</a></li>
+                        <li><a href="synthesis-of-lossless-constant-impedance-lumped-element-phase-shifters-using-uncoupled-inductors.html?v=1782123190">Synthesis of Lossless Constant-Impedance Lumped-Element Phase Shifters Using Uncoupled Inductors</a></li>
                         
-                        <li><a href="pyfsm.html?v=1781118996">Pyfsm</a></li>
+                        <li><a href="pyfsm.html?v=1782123190">Pyfsm</a></li>
                         
-                        <li><a href="balun-silabs.html?v=1781118996">Balun Silabs</a></li>
-=======
-                        <li><a href="synthesis-of-lossless-constant-impedance-lumped-element-phase-shifters-using-uncoupled-inductors.html?v=1782118443">Synthesis of Lossless Constant-Impedance Lumped-Element Phase Shifters Using Uncoupled Inductors</a></li>
-                        
-                        <li><a href="pyfsm.html?v=1782118443">Pyfsm</a></li>
-                        
-                        <li><a href="balun-silabs.html?v=1782118443">Balun Silabs</a></li>
->>>>>>> 1d20e3a... Discrete phase shift article restored
+                        <li><a href="balun-silabs.html?v=1782123190">Balun Silabs</a></li>
                         
                     </ul>
                 </li>
@@ -109,54 +91,53 @@ oscilloscopes during the 1970s satisfies the lumped-element requirement;
 however, it requires coupled inductors with a strictly controlled
 coupling coefficient. Herein, we present a lumped-element alternative
 that eliminates the need for coupled inductors.</p>
-<figure>
-<img src="img/rcpolyphase.png" id="fig:figpolyphase" style="width:60.0%"
-alt="RC Polyphase network used in CMOS IC" />
-<figcaption aria-hidden="true">RC Polyphase network used in CMOS
-IC</figcaption>
+<figure id="fig:figpolyphase" data-latex-placement="H">
+<img src="img/rcpolyphase.png" style="width:60.0%" />
+<figcaption>RC Polyphase network used in CMOS IC</figcaption>
 </figure>
-<figure>
-<img src="img/bridgedT.png" id="fig:figtcoil" style="width:60.0%"
-alt="Bridged T coil" />
-<figcaption aria-hidden="true">Bridged T coil</figcaption>
+<figure id="fig:figtcoil" data-latex-placement="H">
+<img src="img/bridgedT.png" style="width:60.0%" />
+<figcaption>Bridged T coil</figcaption>
 </figure>
 <h1 id="general-properties-of-phase-shift-networks">General properties
 of phase shift networks</h1>
 <p>Phase shift networks have two main properties, giving the following
 transfer function:</p>
-<p><span class="math display">\[H\left(s\right) = \frac{\sum_{k=0}^{N}
-A_k s^k}{ \sum_{k=0}^{M} B_k s^k}\]</span></p>
+<p><span class="math display">\[\begin{equation}
+H\left(s\right) = \frac{\sum_{k=0}^{N} A_k s^k}{ \sum_{k=0}^{M} B_k s^k}
+\end{equation}\]</span></p>
 <p>They meet these requeriments: <span
-class="math display">\[\begin{gathered}
+class="math display">\[\begin{gather}
 |H\left(s\right)|_{s=j\omega} = 1 \text{   }\forall \omega\\
-\phi = arg\left(H\left(s\right)\right) \end{gathered}\]</span></p>
+\phi = arg\left(H\left(s\right)\right)
+\end{gather}\]</span></p>
 <p>Since passive losless network must be stable, all poles of
 denomitator must lie on letf-hand complex plane, the numerator is not
 submitted to this restriction so: <span
-class="math display">\[\begin{gathered}
+class="math display">\[\begin{gather}
 H\left(s\right) = \frac{\sum_{k=0}^{N} (-1)^kA_k s^k}{ \sum_{k=0}^{N}
 A_k s^k}\\  H\left(s\right) = \frac{A_0 - A_1 s + A_2 s^2 - A_2 s^3
-+...+(-1)^n A_n s^n  }{A_0 + A_1 s + A_2 s^2 + A_2 s^3 +...+A_n
-s^n}\end{gathered}\]</span></p>
-<p>And : <span class="math display">\[\phi = -2 arg\left(\sum_{k=0}^{N}
-A_k s^k\right)\]</span></p>
++...+(-1)^n A_n s^n  }{A_0 + A_1 s + A_2 s^2 + A_2 s^3 +...+A_n s^n}
+\end{gather}\]</span></p>
+<p>And : <span class="math display">\[\begin{equation}
+\phi = -2 arg\left(\sum_{k=0}^{N} A_k s^k\right)
+\end{equation}\]</span></p>
 <h1 id="lattice-networks">Lattice Networks</h1>
 <p>Lattice networks are special case of symmetrical networks where shunt
 elements are diagonally crossed, this can provide a number of properties
 that meet the requirements of a phase-shift network. See for example the
 classic LC lattice network:</p>
-<figure>
-<img src="img/lattice_presentation.png" id="fig:figlattice_netw"
-alt="Lattice network" />
-<figcaption aria-hidden="true">Lattice network</figcaption>
+<figure id="fig:figlattice_netw" data-latex-placement="H">
+<img src="img/lattice_presentation.png" />
+<figcaption>Lattice network</figcaption>
 </figure>
-<p>Where: <span class="math display">\[\begin{gathered}
+<p>Where: <span class="math display">\[\begin{gather}
 Z_{open} = \frac{1}{2}\left(Z_A+Z_B\right)\\
 Z_{short} = 2\frac{Z_AZ_B}{\left(Z_A+Z_B\right)}\\
-Z_o = \sqrt{Z_{open}Z_{short}} =
-\sqrt{Z_AZ_B}\end{gathered}\]</span></p>
+Z_o = \sqrt{Z_{open}Z_{short}} = \sqrt{Z_AZ_B}
+\end{gather}\]</span></p>
 <p>In fact, the beahvior of lattice networkks can be described through Z
-parameters: <span class="math display">\[\begin{gathered}
+parameters: <span class="math display">\[\begin{gather}
 \begin{bmatrix}
 Z_{11} &amp; Z_{12}\\
 Z_{21} &amp; Z_{22}\\
@@ -173,11 +154,12 @@ V_2
 \begin{bmatrix}
 \frac{1}{2}\left(Z_A+Z_B\right) &amp; \frac{1}{2}\left(Z_B-Z_A\right)\\
 \frac{1}{2}\left(Z_B-Z_A\right) &amp; \frac{1}{2}\left(Z_A+Z_B\right)\\
-\end{bmatrix}\end{gathered}\]</span></p>
+\end{bmatrix}
+\end{gather}\]</span></p>
 <p>A special case is when output port (port 2) is loaded with
 cuadripole’s characteristic impedance since <span
 class="math inline">\(I_2 = \frac{-V_2}{Z_o}\)</span>: <span
-class="math display">\[\begin{gathered}
+class="math display">\[\begin{gather}
 \begin{bmatrix}
 Z_{11} &amp; Z_{12}\\
 Z_{21} &amp; Z_{22}\\
@@ -189,14 +171,16 @@ I_1 \\
 \begin{bmatrix}
 V_1 \\
 V_2
-\end{bmatrix}\end{gathered}\]</span> Taking the second row, leads us to:
-<span class="math display">\[\begin{gathered}
+\end{bmatrix}
+\end{gather}\]</span> Taking the second row, leads us to: <span
+class="math display">\[\begin{gather}
 I_1 = \frac{V_2}{Z_{21}}\left(1+\frac{Z_{22}}{Z_o}\right)\\
 \left(\frac{Z_{11}Z_o+Z_{11}Z_{22}-Z_{12}Z_{21}}{Z_{21}Z_o}\right) V_2 =
-V_1\end{gathered}\]</span></p>
+V_1
+\end{gather}\]</span></p>
 <p>But <span class="math inline">\(Z_{11}Z_{22}-Z_{12}Z_{21} =
 \Delta\mathbf{Z} = Z_o^2\)</span> Since is symmetrical network.</p>
-<p><span class="math display">\[\begin{gathered}
+<p><span class="math display">\[\begin{gather}
 \frac{V_2}{V_1} = \frac{Z_{21}}{Z_{11}+Z_o}\\
 \frac{V_2}{V_1} =
 \frac{\frac{1}{2}\left(Z_B-Z_A\right)}{\frac{1}{2}\left(Z_A+Z_B\right)+Z_o}\\
@@ -207,82 +191,76 @@ V_1\end{gathered}\]</span></p>
 \frac{V_2}{V_1} =
 \frac{\left(\sqrt{Z_B}-\frac{Z_o}{\sqrt{Z_B}}\right)}{\left(\sqrt{Z_B}+\frac{Z_o}{\sqrt{Z_B}}\right)}\\
 \boxed{\frac{V_2}{V_1} = \frac{Z_B-Z_o}{Z_B+Z_o} =
-\frac{Z_o-Z_A}{Z_o+Z_A}}\end{gathered}\]</span></p>
+\frac{Z_o-Z_A}{Z_o+Z_A}}
+\end{gather}\]</span></p>
 <p>Since <span class="math inline">\(Z_o = \sqrt{Z_AZ_B}\)</span> it
 would be desirable to have a dual pair impedances to have <span
 class="math inline">\(Z_o\)</span> frequency independent. The simplest
 non dissipative case is the LC Lattice network:</p>
-<figure>
-<img src="img/lattice0.png" id="fig:figlattice0" style="width:30.0%"
-alt="LC Lattice network" />
-<figcaption aria-hidden="true">LC Lattice network</figcaption>
+<figure id="fig:figlattice0" data-latex-placement="H">
+<img src="img/lattice0.png" style="width:30.0%" />
+<figcaption>LC Lattice network</figcaption>
 </figure>
 <p>The characteristic impedance of this type of network is simply: <span
-class="math display">\[Z_0 = \sqrt{\frac{L}{C}}\]</span></p>
+class="math display">\[\begin{equation}
+Z_0 = \sqrt{\frac{L}{C}}
+\end{equation}\]</span></p>
 <p>This type of network is often used as narrowband balun:</p>
-<figure>
-<img src="img/lattice_balun.png" id="fig:fignb_balun" style="width:50.0%"
-alt="Narrowband balun where V_a = V_b" />
-<figcaption aria-hidden="true">Narrowband balun where <span
-class="math inline">\(V_a = V_b\)</span></figcaption>
+<figure id="fig:fignb_balun" data-latex-placement="H">
+<img src="img/lattice_balun.png" style="width:50.0%" />
+<figcaption>Narrowband balun where <span class="math inline">\(V_a =
+V_b\)</span></figcaption>
 </figure>
-<p>This balun works at : <span class="math display">\[\begin{gathered}
+<p>This balun works at : <span class="math display">\[\begin{gather}
 L = \frac{Z_o}{\omega_0}\\
-C = \frac{1}{Z_o\omega_0}\\\end{gathered}\]</span> let us assume loading
-at output with <span class="math inline">\(Z_o\)</span> or <span
+C = \frac{1}{Z_o\omega_0}\\
+\end{gather}\]</span> let us assume loading at output with <span
+class="math inline">\(Z_o\)</span> or <span
 class="math inline">\(Z_o/2\)</span> at both <span
 class="math inline">\(V_a\)</span> and <span
 class="math inline">\(V_b\)</span> from ground.</p>
-<p><span class="math display">\[\begin{gathered}
+<p><span class="math display">\[\begin{gather}
 V_a = V_g \frac{\frac{1}{j\omega C}||\frac{Z_o}{2}}{j\omega L +
 \frac{1}{j\omega C}||\frac{Z_o}{2}}\\
 V_b = -V_g \frac{j\omega L ||\frac{Z_o}{2}}{\frac{1}{j\omega C} +
-j\omega L||\frac{Z_o}{2}}\end{gathered}\]</span></p>
+j\omega L||\frac{Z_o}{2}}
+\end{gather}\]</span></p>
 <p>so:</p>
-<p><span class="math display">\[\begin{gathered}
+<p><span class="math display">\[\begin{gather}
 V_a = V_g \frac{\frac{Z_o}{2}}{\frac{Z_o}{2}
 \left(1-\omega^2LC\right)+j\omega L} \\
 V_b = V_g  \frac{\omega^2 LC \frac{Z_o}{2}}{\left(1-\omega^2
-LC\right)\frac{Z_o}{2} +j\omega L}\end{gathered}\]</span></p>
+LC\right)\frac{Z_o}{2} +j\omega L}
+\end{gather}\]</span></p>
 <p>Since <span class="math inline">\(LC = 1/\omega_0^2\)</span> Many
 terms cancels at desired frequency <span class="math inline">\(\omega_0
-= 2\pi f_0\)</span>: <span class="math display">\[\begin{gathered}
+= 2\pi f_0\)</span>: <span class="math display">\[\begin{gather}
 V_a = V_g \frac{\frac{Z_o}{2}}{j\omega_0 \frac{Z_o}{\omega_0}} =
 -j\frac{V_g}{2}\\
 V_b = V_g  \frac{\frac{Z_o}{2}}{j\omega \frac{Z_o}{\omega_0}} =
--j\frac{V_g}{2}\end{gathered}\]</span> Since <span
-class="math inline">\(V_a\)</span> arrow has opposite direction from
-<span class="math inline">\(V_b\)</span> arrow, same sign take into
-account shows <span class="math inline">\(180^{\circ}\)</span> phase
+-j\frac{V_g}{2}
+\end{gather}\]</span> Since <span class="math inline">\(V_a\)</span>
+arrow has opposite direction from <span
+class="math inline">\(V_b\)</span> arrow, same sign take into account
+shows <span class="math inline">\(180^{\circ}\)</span> phase
 shift.<br />
 Lattices are great, making phase shifters. however they are balanced
 networks and they can’t be connected directly to ground on both sides,
 because we are breaking horizontal axis symmetry shunting one of the
 series impedances. May be we can force the symmetry taking into account
 this "balun" principle and cascading two sections.</p>
-<figure>
-<img src="img/double_lattice.png" id="fig:figcascaded_lattices"
-style="width:50.0%"
-alt="Two cascaded lattices avoids low branch series impedance shunting." />
-<figcaption aria-hidden="true">Two cascaded lattices avoids low branch
-series impedance shunting.</figcaption>
+<figure id="fig:figcascaded_lattices" data-latex-placement="H">
+<img src="img/double_lattice.png" style="width:50.0%" />
+<figcaption>Two cascaded lattices avoids low branch series impedance
+shunting.</figcaption>
 </figure>
 <p>If we take look carefully, we can infer that is topologically
 equivalent to two T quadripoles in parallel:</p>
-<figure>
-<img src="img/topology_equivalent.png" id="fig:fig_topology"
-style="width:100.0%"
-alt="Two cascaded lattices connected to ground ond both ports equals to two T quadripoles in parallel." />
-<figcaption aria-hidden="true">Two cascaded lattices connected to ground
-ond both ports equals to two T quadripoles in parallel.</figcaption>
+<figure id="fig:fig_topology" data-latex-placement="H">
+<img src="img/topology_equivalent.png" style="width:100.0%" />
+<figcaption>Two cascaded lattices connected to ground ond both ports
+equals to two T quadripoles in parallel.</figcaption>
 </figure>
-<<<<<<< HEAD
-<h1 id="coming-soon....">Coming soon....</h1>
-<p><span>This article is under development and will be completed
-shortly.</span></p>
-<figure data-latex-placement="H">
-<img src="img/comingsooon.png" style="width:80.0%" />
-=======
 <h1 id="analysis-of-double-t">Analysis of double T</h1>
 <p>Let’s make the analisys of these double T in parallel. Instead of
 calculating two quadripoles in parallel (obtaining Y parameters, then
@@ -291,39 +269,41 @@ we can exploit the symmetry to use even-odd analisys or using
 Bartlett.</p>
 <h2 id="the-easy-way-the-bartletts-bisection-theorem">The easy way: the
 Bartlett’s bisection theorem </h2>
+<figure id="fig:double_t_bartlett" data-latex-placement="H">
 <p><img src="img/doubleT_bartlett.png" style="width:40.0%" alt="image" />
 <span id="fig:double_t_bartlett"
-label="fig:double_t_bartlett"></span></p>
-<figure>
-<img src="img/even_odd.png" id="fig:even_odd" style="width:50.0%"
-alt="Even and odd circuit equivalents" />
-<figcaption aria-hidden="true">Even and odd circuit
-equivalents</figcaption>
+data-label="fig:double_t_bartlett"></span></p>
+</figure>
+<figure id="fig:even_odd" data-latex-placement="H">
+<img src="img/even_odd.png" style="width:50.0%" />
+<figcaption>Even and odd circuit equivalents</figcaption>
 </figure>
 <h3 id="even-mode">Even mode</h3>
-<p>For even mode we have <span class="math display">\[\begin{gathered}
+<p>For even mode we have <span class="math display">\[\begin{gather}
 Z_{even} = \left(L_1s+\frac{1}{\frac{C_1}{2}s}\right) || \left(2L_2 s +
 \frac{1}{C_2 s}\right)\\
 Z_{even} = \frac{ \frac{(s^2 L_1 C_1 + 2)(2s^2 L_2 C_2 + 1)}{s^2 C_1
 C_2} }{ \frac{sC_2(s^2 L_1 C_1 + 2) + sC_1(2s^2 L_2 C_2 + 1)}{s^2 C_1
 C_2} }\\
 Z_{even} = \frac{ 2s^4 L_1 L_2 C_1 C_2 + s^2(L_1 C_1 + 4L_2 C_2) + 2 }{
-s \left[ s^2 C_1 C_2(L_1 + 2L_2) + (C_1 + 2C_2) \right]
-}\end{gathered}\]</span></p>
+s \left[ s^2 C_1 C_2(L_1 + 2L_2) + (C_1 + 2C_2) \right] }
+\end{gather}\]</span></p>
 <h3 id="odd-mode">Odd mode</h3>
-<p><span class="math display">\[\begin{gathered}
+<p><span class="math display">\[\begin{gather}
 Z_{odd} = \frac{sL_1 \cdot \frac{1}{sC_2}}{sL_1 + \frac{1}{sC_2}} =
 \frac{ \frac{sL_1}{sC_2} }{ \frac{s^2 L_1 C_2 + 1}{sC_2} }\\
-Z_{odd} = \frac{sL_1}{s^2 L_1 C_2 + 1}\end{gathered}\]</span></p>
+Z_{odd} = \frac{sL_1}{s^2 L_1 C_2 + 1}
+\end{gather}\]</span></p>
 <h3 id="characteristic-impedance">Characteristic impedance</h3>
 <p>From <span class="math inline">\(Z_o^2 = Z_{even} \cdot
-Z_{odd}\)</span>: <span class="math display">\[\begin{gathered}
+Z_{odd}\)</span>: <span class="math display">\[\begin{gather}
 Z_o^2 = \left( \frac{ 2s^4 L_1 L_2 C_1 C_2 + s^2(L_1 C_1 + 4L_2 C_2) + 2
 }{ s \left[ s^2 C_1 C_2(L_1 + 2L_2) + (C_1 + 2C_2) \right] } \right)
 \cdot \left( \frac{sL_1}{s^2 L_1 C_2 + 1} \right)\\
 Z_o^2 = \frac{ 2s^4 L_1^2 L_2 C_1 C_2 + s^2 L_1(L_1 C_1 + 4L_2 C_2) +
 2L_1 }{ \left[ s^2 C_1 C_2(L_1 + 2L_2) + (C_1 + 2C_2) \right] \cdot
-\left( s^2 L_1 C_2 + 1 \right) }\end{gathered}\]</span></p>
+\left( s^2 L_1 C_2 + 1 \right) }
+\end{gather}\]</span></p>
 <p>For this circuit to behave as a constant-impedance network, the large
 equation above must collapse to a purely resistive value (independent of
 <span class="math inline">\(s\)</span>). Mathematically, this means that
@@ -332,28 +312,34 @@ way to force this cancellation from a circuit topology perspective is by
 making the two branches of the even-mode equivalent circuit identical.
 That is, by equating <span class="math inline">\(Z_{e1}\)</span> and
 <span class="math inline">\(Z_{e2}\)</span>:</p>
-<p><span class="math display">\[sL_1 + \frac{2}{sC_1} = 2sL_2 +
-\frac{1}{sC_2}\]</span></p>
-<p>The condition for inductors is: <span class="math display">\[L_1 =
-2L_2\]</span></p>
-<p>And for capacitors: <span class="math display">\[\frac{2}{C_1} =
-\frac{1}{C_2} \implies C_1 = 2C_2\]</span></p>
+<p><span class="math display">\[\begin{equation}
+sL_1 + \frac{2}{sC_1} = 2sL_2 + \frac{1}{sC_2}
+\end{equation}\]</span></p>
+<p>The condition for inductors is: <span
+class="math display">\[\begin{equation}
+L_1 = 2L_2
+\end{equation}\]</span></p>
+<p>And for capacitors: <span class="math display">\[\begin{equation}
+\frac{2}{C_1} = \frac{1}{C_2} \implies C_1 = 2C_2
+\end{equation}\]</span></p>
 <p>On the numerator this leads us to: <span
-class="math display">\[\begin{gathered}
+class="math display">\[\begin{gather}
 \text{Num} = 2s^4 L_1^2 \left(\frac{L_1}{2}\right) (2C_2) C_2 + s^2 L_1
 \left( L_1(2C_2) + 4\left(\frac{L_1}{2}\right) C_2 \right) + 2L_1\\
 \text{Num} = 2L_1 \left( s^4 L_1^2 C_2^2 + 2s^2 L_1 C_2 + 1 \right)\\
-Num  = 2L_1 \left( s^2 L_1 C_2 + 1 \right)^2\end{gathered}\]</span></p>
-<p>On denominator: <span class="math display">\[\begin{gathered}
+Num  = 2L_1 \left( s^2 L_1 C_2 + 1 \right)^2
+\end{gather}\]</span></p>
+<p>On denominator: <span class="math display">\[\begin{gather}
 \text{Den} = \left[ 4C_2 \left( s^2 L_1 C_2 + 1 \right) \right] \cdot
 \left[ s^2 L_1 C_2 + 1 \right]\\
-\text{Den} = 4C_2 \left( s^2 L_1 C_2 + 1
-\right)^2\end{gathered}\]</span></p>
+\text{Den} = 4C_2 \left( s^2 L_1 C_2 + 1 \right)^2
+\end{gather}\]</span></p>
 <p>So finally we have the following expression: <span
-class="math display">\[Z_o^2 = \frac{ 2L_1 \left( s^2 L_1 C_2 + 1
-\right)^2 }{ 4C_2 \left( s^2 L_1 C_2 + 1 \right)^2 }\]</span> The two
-terms between parenthesis cancels out: <span
-class="math display">\[Z_o^2 = \frac{L_1}{2C_2}\]</span> so: <span
+class="math display">\[\begin{equation}
+Z_o^2 = \frac{ 2L_1 \left( s^2 L_1 C_2 + 1 \right)^2 }{ 4C_2 \left( s^2
+L_1 C_2 + 1 \right)^2 }
+\end{equation}\]</span> The two terms between parenthesis cancels out:
+<span class="math display">\[Z_o^2 = \frac{L_1}{2C_2}\]</span> so: <span
 class="math display">\[Z_o = \sqrt{\frac{L_1}{2C_2}}\]</span></p>
 <p>Recalling the expression for all-pass network: <span
 class="math display">\[H(s) = \frac{V_{out}}{V_{in}} = \frac{Z_o -
@@ -403,12 +389,13 @@ class="math inline">\(C_1 = 2.5\text{ pF}\)</span>, <span
 class="math inline">\(C_2 = 1.25\text{ pF}\)</span>, <span
 class="math inline">\(L_1 = 12.5\text{ nH}\)</span>, and <span
 class="math inline">\(L_2 = 6.25\text{ nH}\)</span>.</p>
+<figure id="fig:fig_qucs_sch" data-latex-placement="H">
 <p><img src="img/qucs_sch.png" style="width:100.0%" alt="image" /> <span
-id="fig:fig_qucs_sch" label="fig:fig_qucs_sch"></span></p>
-<figure>
-<img src="img/qucs_sim.png" id="fig:fig_qucs_sim" style="width:100.0%"
-alt="Top left: The Smith chart with S_{11} = 0 (constant impedance). Top right: Polar diagram showing the all-pass network condition |H(j\omega)| = 1 but the phase varies. Bottom: The phase in degrees." />
-<figcaption aria-hidden="true">Top left: The Smith chart with <span
+id="fig:fig_qucs_sch" data-label="fig:fig_qucs_sch"></span></p>
+</figure>
+<figure id="fig:fig_qucs_sim" data-latex-placement="H">
+<img src="img/qucs_sim.png" style="width:100.0%" />
+<figcaption>Top left: The Smith chart with <span
 class="math inline">\(S_{11} = 0\)</span> (constant impedance). Top
 right: Polar diagram showing the all-pass network condition <span
 class="math inline">\(|H(j\omega)| = 1\)</span> but the phase varies.
@@ -446,19 +433,18 @@ Z_o}\]</span></p>
 <p><span class="math display">\[C_2 = \frac{\sqrt{3} - 1}{2 \cdot 5.655
 \times 10^9 \cdot 50} \approx \frac{0.732}{565.5 \times 10^9} \approx
 1.29 \text{ pF}\]</span></p>
+<figure id="fig:fig_qucs_sch_quad" data-latex-placement="H">
 <p><img src="img/qucs_sch_quad.png" style="width:100.0%" alt="image" />
 <span id="fig:fig_qucs_sch_quad"
-label="fig:fig_qucs_sch_quad"></span></p>
-<figure>
-<img src="img/qucs_sim_quad.png" id="fig:fig_qucs_sim_quad"
-style="width:100.0%"
-alt="Top left: The Smith chart with S_{11} = 0 (constant impedance). Top right: Polar diagram showing the all-pass network condition |H(j\omega)| = 1 but the phase is 90 degree away from source. Bottom: The phase in degrees." />
-<figcaption aria-hidden="true">Top left: The Smith chart with <span
+data-label="fig:fig_qucs_sch_quad"></span></p>
+</figure>
+<figure id="fig:fig_qucs_sim_quad" data-latex-placement="H">
+<img src="img/qucs_sim_quad.png" style="width:100.0%" />
+<figcaption>Top left: The Smith chart with <span
 class="math inline">\(S_{11} = 0\)</span> (constant impedance). Top
 right: Polar diagram showing the all-pass network condition <span
 class="math inline">\(|H(j\omega)| = 1\)</span> but the phase is 90
 degree away from source. Bottom: The phase in degrees.</figcaption>
->>>>>>> 1d20e3a... Discrete phase shift article restored
 </figure>
 <h1 id="conclusions">Conclusions</h1>
 <p>We have deduced the general conditions for a constant-impedance
