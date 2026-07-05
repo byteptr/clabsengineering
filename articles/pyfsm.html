@@ -10,7 +10,7 @@
     
     <link rel="canonical" href="https://clabsengineering.com/articles/pyfsm.html" />
     
-    <link rel="stylesheet" href="../css/styles.css?v=1783161616">
+    <link rel="stylesheet" href="../css/styles.css?v=1783216633">
     <script>
         window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] } };
     </script>
@@ -20,7 +20,7 @@
 
 <nav>
     <a href="../en/index.html">
-        <img src="../clabslogo.svg?v=1783161616" alt="CoreLabs Engineering" class="logo-img">
+        <img src="../clabslogo.svg?v=1783216633" alt="CoreLabs Engineering" class="logo-img">
     </a>     
     <ul class="menu-nav">
         
@@ -41,7 +41,7 @@
             
         
             
-                <li class="menu-item"><a href="../news/news.html?v=1783161616">News</a></li>
+                <li class="menu-item"><a href="../news/news.html?v=1783216633">News</a></li>
             
         
             
@@ -49,18 +49,22 @@
                     <a href="#">Technical Articles ▾</a>
                     <ul class="dropdown-menu">
                         
-                        <li><a href="articles_index.html?v=1783161616">View All Portfolio</a></li>
+                        <li><a href="articles_index.html?v=1783216633">View All Portfolio</a></li>
                         
-                        <li><a href="two-active-switch-buck-boost-state-space-analysis-including-losses.html?v=1783161616">Two active switch Buck-Boost State Space analysis including losses</a></li>
+                        <li><a href="two-active-switch-buck-boost-state-space-analysis-including-losses.html?v=1783216633">Two active switch Buck-Boost State Space analysis including losses</a></li>
                         
-                        <li><a href="synthesis-of-lossless-constant-impedance-lumped-element-phase-shifters-using-uncoupled-inductors.html?v=1783161616">Synthesis of Lossless Constant-Impedance Lumped-Element Phase Shifters Using Uncoupled Inductors</a></li>
+                        <li><a href="synthesis-of-lossless-constant-impedance-lumped-element-phase-shifters-using-uncoupled-inductors.html?v=1783216633">Synthesis of Lossless Constant-Impedance Lumped-Element Phase Shifters Using Uncoupled Inductors</a></li>
                         
-                        <li><a href="pyfsm.html?v=1783161616">Pyfsm</a></li>
+                        <li><a href="pyfsm.html?v=1783216633">Pyfsm</a></li>
                         
-                        <li><a href="balun-silabs.html?v=1783161616">Balun Silabs</a></li>
+                        <li><a href="balun-silabs.html?v=1783216633">Balun Silabs</a></li>
                         
                     </ul>
                 </li>
+            
+        
+            
+                <li class="menu-item"><a href="../blog/blog.html?v=1783216633">Blog</a></li>
             
         
     </ul>
@@ -106,12 +110,10 @@ so in this case i-th state goes to j-th state if k-th condition is true.</p>
 <p align="center">
   <img src="img/matrix_fsm.png" >
 </p>
-
 <p>This matrix represents the following FSM: </p>
 <p align="center">
   <img src="img/diagram.png" >
 </p>
-
 <p>In order to describe a FSM you need a 3-element Tuple: $s_{origin}\to s_{destiny}:t_{condition}$ where $s_{k}$ are the states and $t_k$ transition conditions: functions or expressions 
 to be evaluated if theu are <strong>true</strong> or <strong>false</strong>.  </p>
 <p>To describe correctly FSM in deterministic case, the following conditions must be fullfilled: </p>
@@ -137,64 +139,62 @@ to be evaluated if theu are <strong>true</strong> or <strong>false</strong>.  </
 1. On Enter action callback is called on new state</p>
 <p align="center">
   <img src="img/action_order.png">
-    <div align="center">Actions order transtitioning from state A to B</div>
+    <div align="center" markdown="1">Actions order transtitioning from state A to B</div>
 </p>
-
 <p>See example below:</p>
-<p>```python
-if <strong>name</strong> == "<strong>main</strong>": 
+<pre><code class="language-python">if __name__ == &quot;__main__&quot;: 
     f = fsm()
     # Define transitions
     f.add_transition('A =&gt; B : t0')
     f.add_transition('B =&gt; C : t1')
     f.add_transition('C =&gt; D : t2')
-    f.add_transition('D =&gt; A : t3')</p>
-<pre><code># Adds condition
-f.add_condition('t0', 'a%10 == 0')
-f.add_condition('t1', 'a%10 == 0')
-f.add_condition('t2', 'a%10 == 0')
-f.add_condition('t3', 'a%10 == 0')
+    f.add_transition('D =&gt; A : t3')
 
-# ******************** Define Actions ********************
+    # Adds condition
+    f.add_condition('t0', 'a%10 == 0')
+    f.add_condition('t1', 'a%10 == 0')
+    f.add_condition('t2', 'a%10 == 0')
+    f.add_condition('t3', 'a%10 == 0')
 
-# On entry (to state) actions 
-f.add_action_on_entry('A', onEnter_A)
-f.add_action_on_entry('B', onEnter_B)
-f.add_action_on_entry('C', onEnter_C)
-f.add_action_on_entry('D', onEnter_D)
+    # ******************** Define Actions ********************
 
-# On state actions 
-f.add_action_on_state('A', onState_A)
-f.add_action_on_state('B', onState_B)
-f.add_action_on_state('C', onState_C)
-f.add_action_on_state('D', onState_D)
+    # On entry (to state) actions 
+    f.add_action_on_entry('A', onEnter_A)
+    f.add_action_on_entry('B', onEnter_B)
+    f.add_action_on_entry('C', onEnter_C)
+    f.add_action_on_entry('D', onEnter_D)
 
-# On exit (from state) actions
-f.add_action_on_exit('A', onExit_A)
-f.add_action_on_exit('B', onExit_B)
-f.add_action_on_exit('C', onExit_C)
-f.add_action_on_exit('D', onExit_D)
+    # On state actions 
+    f.add_action_on_state('A', onState_A)
+    f.add_action_on_state('B', onState_B)
+    f.add_action_on_state('C', onState_C)
+    f.add_action_on_state('D', onState_D)
 
-# On transition actions
-f.add_action_on_transition('t0', onTransition_t0)
-f.add_action_on_transition('t1', onTransition_t1)
-f.add_action_on_transition('t2', onTransition_t2)
-f.add_action_on_transition('t3', onTransition_t3)
+    # On exit (from state) actions
+    f.add_action_on_exit('A', onExit_A)
+    f.add_action_on_exit('B', onExit_B)
+    f.add_action_on_exit('C', onExit_C)
+    f.add_action_on_exit('D', onExit_D)
 
-# ********************************************************
+    # On transition actions
+    f.add_action_on_transition('t0', onTransition_t0)
+    f.add_action_on_transition('t1', onTransition_t1)
+    f.add_action_on_transition('t2', onTransition_t2)
+    f.add_action_on_transition('t3', onTransition_t3)
 
-f.compile() # Compile
+    # ********************************************************
 
-a = 0
+    f.compile() # Compile
 
-# Execute 130 times
-for j in range(130): 
-    f.step()
-    if (j &gt; 100) and (len(f.true_transitions) != 0):
-        break
-    a += 1
+    a = 0
+
+    # Execute 130 times
+    for j in range(130): 
+        f.step()
+        if (j &gt; 100) and (len(f.true_transitions) != 0):
+            break
+        a += 1
 </code></pre>
-<p>```</p>
 <h2>Dead states detection</h2>
 <p>Dead states are non-reachable states or states described on FSM that are not reachable because all entries on a given column related to this state are zero.<br />
 To ensure good FSM description a static check for dead states can be performed through accesibility matrix $R$.</p>
@@ -221,40 +221,38 @@ Refer to <code>detect_closed_cycle()</code></p>
 <p>Detects cycles on a window.
 Refer to <code>detect_windowed_cycles()</code></p>
 <h2>Usage</h2>
-<p>```python
-    def test_fcn():
-        return True</p>
-<pre><code>f = fsm()
+<pre><code class="language-python">    def test_fcn():
+        return True
 
-f.add_transition('A =&gt; B : t0')
-f.add_transition('B =&gt; C : t1')
-f.add_transition('C =&gt; A : t2')
-f.add_transition('D =&gt; A : t3')
+    f = fsm()
 
-f.add_condition('t0', 'a%10 == 0')
-f.add_condition('t1', 'a%10 == 0')
-f.add_condition('t2', 'a%10 == 0')
-f.add_condition('t3', test_fcn)
+    f.add_transition('A =&gt; B : t0')
+    f.add_transition('B =&gt; C : t1')
+    f.add_transition('C =&gt; A : t2')
+    f.add_transition('D =&gt; A : t3')
 
-f.compile()
-a = 0
+    f.add_condition('t0', 'a%10 == 0')
+    f.add_condition('t1', 'a%10 == 0')
+    f.add_condition('t2', 'a%10 == 0')
+    f.add_condition('t3', test_fcn)
 
-for j in range(130): 
-    f.step()
-    if (j &gt; 100) and (len(f.true_transitions) != 0): 
-        break
-    a += 1
+    f.compile()
+    a = 0
 
-print('done')
-print(f)
+    for j in range(130): 
+        f.step()
+        if (j &gt; 100) and (len(f.true_transitions) != 0): 
+            break
+        a += 1
+
+    print('done')
+    print(f)
 </code></pre>
-<p>```</p>
 <h2>Exception classes</h2>
 <p align="center">
-  <img src="img/fsm_exception_class.png" alt="Ligth mode" />  
+  <img src="img/fsm_exception_class.png" alt="Ligth mode" /><br />
     <br>Exception hierarchy<br>
 </p>
-
 <p>There are two main types of exceptions:
 - Invalid Syntax exceptions<br />
 Invalid syntax exceptions are triggered when we are defining FSM before executing it if the user violates the rules of FSM definition. The Syntax exceptions are:
@@ -334,7 +332,7 @@ And t1 through t3 are simultaneously true.</p>
 </li>
 </ul>
 <p align="center">
-  <img src="img/bifurcation.png" />  
+  <img src="img/bifurcation.png" /><br />
     <br>t1, t2 and t3 are True at same time (non disjoint transitions)<br>
 </p>
 <p>This raises FSMNondisjoinctTransitions</p>
@@ -342,69 +340,70 @@ And t1 through t3 are simultaneously true.</p>
 <h2>Remote HTTP FSM viewer in real time</h2>
 <p>pyfsmview is a minimalist http/websocket server to visualize and debug FSM from pyfsm module in real-time to visualize and debug FSM from pyfsm module on real time.</p>
 <p align="center">
-  <img src="img/fsm_dark.gif" alt="Dark mode" width="600"/>  
+  <img src="img/fsm_dark.gif" alt="Dark mode" width="600"/><br />
     <br>Dark mode<br>
 </p>
 <p align="center">
-  <img src="img/fsm_ligth.gif" alt="Ligth mode" width="600"/>  
+  <img src="img/fsm_ligth.gif" alt="Ligth mode" width="600"/><br />
     <br>Ligth mode<br>
 </p>
-
 <h3>Minimal Example:</h3>
-<p>```python
-import asyncio
+<pre><code class="language-python">import asyncio
 from pyfsm import fsm
-from pyfsmview import pyfsm_http_visualizer</p>
-<p>if <strong>name</strong> == '<strong>main</strong>': </p>
-<pre><code># FSM Overloading
-class test_fsm(fsm):
-    def __init__(self, history_len=10) -&gt; None:
-        super().__init__(history_len)
-        self.a = 0
+from pyfsmview import pyfsm_http_visualizer
 
-    def tcondition(self)-&gt;bool:
-        return True #(self.a % 10) == 0
+if __name__ == '__main__': 
 
-    def step(self) -&gt; None:
-        self.a += 1
-        self.a %= 2
-        super().step()
+    # FSM Overloading
+    class test_fsm(fsm):
+        def __init__(self, history_len=10) -&gt; None:
+            super().__init__(history_len)
+            self.a = 0
 
-    # Custom co-routine (optional)
-    async def printstate(self)-&gt;None:
-        print("Prinstate running...")
-        while True:
-            print(f'{self.a} {self.state}')
-            await asyncio.sleep(0.1)
+        def tcondition(self)-&gt;bool:
+            return True #(self.a % 10) == 0 
 
-f = test_fsm()
+        def step(self) -&gt; None:
+            self.a += 1
+            self.a %= 2
+            super().step()
 
-f.add_transition('A =&gt; B : t0')
-f.add_transition('B =&gt; C : t1')
-f.add_transition('C =&gt; D : t2')
-f.add_transition('D =&gt; A : t3')
+        # Custom co-routine (optional)
+        async def printstate(self)-&gt;None:
+            print(&quot;Prinstate running...&quot;)
+            while True:
+                print(f'{self.a} {self.state}')
+                await asyncio.sleep(0.1)
 
-f.add_condition('t0', f.tcondition)
-f.add_condition('t1', f.tcondition)
-f.add_condition('t2', f.tcondition)
-f.add_condition('t3', f.tcondition)
+    f = test_fsm()
 
-f.compile()
+    f.add_transition('A =&gt; B : t0')
+    f.add_transition('B =&gt; C : t1')
+    f.add_transition('C =&gt; D : t2')
+    f.add_transition('D =&gt; A : t3')
 
-# Create http visualizer instance in dark mode 
-service = pyfsm_http_visualizer(mode = 'dark')
-service.bind(f) # binds FSM to visualizer
-service.tasks.append(f.printstate) # Adds additional coroutine if you want
+    f.add_condition('t0', f.tcondition)
+    f.add_condition('t1', f.tcondition)
+    f.add_condition('t2', f.tcondition)
+    f.add_condition('t3', f.tcondition)
 
-service.fsmbind.ev_loop_flag.set() # Event loop flag must be set
-# Runs until Ctrl-C is pressed 
-try: 
-    asyncio.run(service.start()) # Classic asyncio running coroutines
-except KeyboardInterrupt: 
-    service.fsmbind.ev_running.clear() # Signal stop all 
-    print("Ctrl-C detected. exit()")
+    f.compile()
+
+    # Create http visualizer instance in dark mode 
+    service = pyfsm_http_visualizer(mode = 'dark')
+    service.bind(f) # binds FSM to visualizer
+    service.tasks.append(f.printstate) # Adds additional coroutine if you want
+
+    service.fsmbind.ev_loop_flag.set() # Event loop flag must be set
+    # Runs until Ctrl-C is pressed 
+    try: 
+        asyncio.run(service.start()) # Classic asyncio running coroutines
+    except KeyboardInterrupt: 
+        service.fsmbind.ev_running.clear() # Signal stop all 
+        print(&quot;Ctrl-C detected. exit()&quot;)
+
 </code></pre>
-<p><code>Open a web browser and connect to url:</code>localhost:8000```</p>
+<p>Open a web browser and connect to url: <code>localhost:8000</code></p>
 <h2>Installation</h2>
 <p>Coming soon....</p>
 <h2>License</h2>
