@@ -1,39 +1,44 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">    
-    <title>CLABS Engineering</title>
-    <script>
-        // Detector de idioma automático
-        var userLang = navigator.language || navigator.userLanguage; 
-        if (userLang.startsWith('es')) {
-            window.location.href = "./es/index.html";
-        } else if (userLang.startsWith('en')) {
-            window.location.href = "./en/index.html";
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">    
+    <title>CLABS Engineering</title>
+    <script>
+        var savedLang = sessionStorage.getItem('clabs_lang');
+        if (savedLang) {
+            // Forzamos al navegador a pedir el HTML limpio usando el reloj del sistema
+            window.location.href = './' + savedLang + '/index.html?v=' + Date.now();
         } else {
-            window.location.href = "./fr/index.html";
+            var lang = (navigator.language || navigator.userLanguage).substr(0, 2).toLowerCase();
+            if (lang === 'es') { 
+                window.location.href = './es/index.html?v=' + Date.now(); 
+            } else if (lang === 'fr') { 
+                window.location.href = './fr/index.html?v=' + Date.now(); 
+            } else { 
+                window.location.href = './en/index.html?v=' + Date.now(); 
+            }
         }
-    </script>
-</head>
-<body>
-    <nav style="display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000;">
-        <a href="index.html" style="text-decoration: none; font-weight: bold; color: #0056b3; font-size: 1.2rem;">CLABS Engineering</a>
-        
-        <div class="language-selector" style="display: flex; gap: 15px; align-items: center;">
-            <span style="font-size: 0.8rem; color: #666; font-family: sans-serif;">Language:</span>
-            <a href="./fr/index.html" title="Français" style="text-decoration: none; font-size: 1.5rem;">🇫🇷</a>
-            <a href="./en/index.html" title="English" style="text-decoration: none; font-size: 1.5rem;">🇬🇧</a>
-            <a href="./es/index.html" title="Español" style="text-decoration: none; font-size: 1.5rem;">🇪🇸</a>
-        </div>
-    </nav>    
-    <h1>CLABS Engineering</h1>
-    <ul>
-        <li><a href="./fr/index.html">Français</a></li>
-        <li><a href="./en/index.html">English</a></li>
-        <li><a href="./es/index.html">Español</a></li>
-    </ul>
-</body>
+    </script>
+</head>
+<body>
+    <nav style="display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000;">
+        <a href="index.html" style="text-decoration: none; font-weight: bold; color: #0056b3; font-size: 1.2rem;">CLABS Engineering</a>
+        
+        <div class="language-selector" style="display: flex; gap: 15px; align-items: center;">
+            <span style="font-size: 0.8rem; color: #666; font-family: sans-serif;">Language:</span>
+            <a href="./fr/index.html" title="Français" style="text-decoration: none; font-size: 1.5rem;">🇫🇷</a>
+            <a href="./en/index.html" title="English" style="text-decoration: none; font-size: 1.5rem;">🇬🇧</a>
+            <a href="./es/index.html" title="Español" style="text-decoration: none; font-size: 1.5rem;">🇪🇸</a>
+        </div>
+    </nav>    
+    <h1>CLABS Engineering</h1>
+    <ul>
+        <li><a href="./fr/index.html">Français</a></li>
+        <li><a href="./en/index.html">English</a></li>
+        <li><a href="./es/index.html">Español</a></li>
+    </ul>
+</body>
 </html>
